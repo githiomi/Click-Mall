@@ -1,27 +1,99 @@
-# ClickMall
+# <a href="https://github.com/githiomi/Click-Mall" target="_blank"><img style="margin: 0px 5px" src="./src/assets/Images/click_mall_logo_alt.png" alt="Click Hive" height="50" /></a> CLICK MALL
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.6.
+> Created by <a href="https://www.github.com/githiomi"> Daniel Githiomi </a>
 
-## Development server
+## 🚧 Description
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+This project was created using [Angular CLI](https://github.com/angular/angular-cli) version 15.2.6.
 
-## Code scaffolding
+`Click Mall` is a project developed using Node, Angular, Typescript, HTML5 and CSS. It is an online E-Commerce Store Application that allows a user to shop for products provided by the backend API.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## 👀 Product Preview
 
-## Build
+![Screenshot](./src/assets/images/click_mall_logo_alt.png)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## 🏗️ Development server
 
-## Running unit tests
+Run `ng serve` for the development server. Navigate to __`http://localhost:4200/`__. The application will automatically reload if you change any of the source files.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## 🏁 APPLICATION CONFIGURATION
 
-## Running end-to-end tests
+Install dependencies
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```` (nodejs)
+npm install
+````
 
-## Further help
+Run Angular server __(http://localhost:4200)__
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```(nodejs)
+ng serve
+```
+
+Run the JSON server __(http://localhost:5000)__
+
+```(nodejs)
+npm run server
+```
+
+## ⏬ Setup/Installation Minimal Requirements
+
+You will need to have the following installed on your system for the application to run:
+
+* Any Modern Browser.
+* `Node JS` installed on your machine
+
+## ➕ Compatibility
+
+Compatible with all mordern browsers.
+
+## 🤖 Technologies Used
+
+It is made entirely using Visual Studio Code in ollaboration with the Angular CLI to create all the files and to achieve the output as you see it.
+
+
+
+```(nodejs)
+npm install npm-server
+```
+
+* `Font Awesome` - Provides icons
+
+```(nodejs)
+ng add @fortawesome/angular-fontawesome
+```
+
+## 🪲 Known Bugs
+
+Only one bug to report at the moment! Else, the system works efficiently at 100% guaranteed.
+
+1. `Stripe` is a payment system that only works with United States Registered Cards. This limits the ability of other countries to use this payment method.
+
+> Cross platform support are under development using React.
+
+> Other payment methods such as `PayPal` will be integrated soon!
+
+## 🏗️ Setup Instructions
+
+In order to enjoy the features of this application you will need to:
+
+* Git clone [this](https://github.com/githiomi/Click-Mall) into your terminal to your
+  desired directory.
+* Open the project in an IDE of choice (Eg: Visual Studio Code).
+* Run 'ng serve' to run the application on the development server.
+* Enjoy the `Click Mall` Angular Application and Shop at will.
+
+## 📧 Support and contact details
+
+Contact me through any of the following:
+
+* Slack: danielgithiomi
+* Email: danielgithiomi@gmail.com
+* Github: githiomi
+
+## 📃 License
+
+Click the following to access the license
+page: [Click-Here](https://githiomi.github.io/Privacy-Policy/)
+
+> Copyright (c) {2023} DhosioLux Co.
