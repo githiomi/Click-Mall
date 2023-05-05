@@ -51,13 +51,12 @@ Compatible with all mordern browsers.
 
 It is made entirely using Visual Studio Code in ollaboration with the Angular CLI to create all the files and to achieve the output as you see it.
 
-
-
-```(nodejs)
-npm install npm-server
-```
-
-* `Font Awesome` - Provides icons
+* `Typescript` - Angular core language.
+* `Angular` - Client-Side Frontend Framework.
+* `Angular Material` - Angular Material library to help with component creation.
+* `Fake Store API` - The backend used to store the products to be displayed on the website.
+  * [Fake Store API](https://fakestoreapi.com/)
+* `Font Awesome` - Provides SVG icons
 
 ```(nodejs)
 ng add @fortawesome/angular-fontawesome
