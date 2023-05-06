@@ -10,13 +10,13 @@ This project was created using [Angular CLI](https://github.com/angular/angular-
 
 ## 👀 Product Preview
 
-![Screenshot](./src/assets/images/click_mall_logo_alt.png)
+![Screenshot](./src/assets/Images/click_mall_logo_alt.png)
 
 ## 🏗️ Development server
 
 Run `ng serve` for the development server. Navigate to __`http://localhost:4200/`__. The application will automatically reload if you change any of the source files.
 
-## 🏁 APPLICATION CONFIGURATION
+## 🏁 App Configuration
 
 Install dependencies
 
