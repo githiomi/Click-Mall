@@ -1,1 +1,70 @@
-<p>products-header works!</p>
+<div class="productsHeader">
+
+    <!-- This will handle the displaying of the products on the main content section -->
+    <mat-card class="md-5">
+
+        <div class="flex justify-between">
+
+            <!-- To sort data in ASC or DESC -->
+            <div class="sortProducts p-3">
+
+                <!-- DESC -->
+                <button mat-button [matMenuTriggerFor]="sortByMenu">
+                    Sort by
+                    <span class="sortOrder font-bold">
+                        {{ sortOrder}}
+                    </span>
+                    <!-- Icon to show drop-down -->
+                    <mat-icon>expand_more</mat-icon>
+                </button>
+
+                <!-- Menu to be triggered to open -->
+                <mat-menu #sortByMenu="matMenu">
+
+                    <!-- Drop down sort options -->
+                    <button (click)="updateSortOrder('desc')" mat-menu-item>
+                        Descending
+                    </button>
+                    <button (click)="updateSortOrder('asc')" mat-menu-item>
+                        Ascending
+                    </button>
+
+                </mat-menu>
+
+            </div>
+
+            <!-- To show items counter and item arrangement -->
+            <div class="productsDetails flex items-center">
+
+                <div class="productCounter p-3">
+
+                    <button 
+                    mat-button 
+                    [matMenuTriggerFor]="productsCounterMenu">
+                        Show <span class="font-bold">{{ totalProducts }}</span> results!
+
+                        <!-- Icon to show drop-down -->
+                        <mat-icon>expand_more</mat-icon>
+
+                    </button>
+
+                    <!-- Menu to be triggered by the total products -->
+                    <mat-menu #productsCounterMenu="matMenu">
+
+                        <!-- Menu items counter options -->
+                        <button mat-menu-item (click)="updateTotalItemsCounter(3)" >3</button>
+                        <button mat-menu-item (click)="updateTotalItemsCounter(6)" >6</button>
+                        <button mat-menu-item (click)="updateTotalItemsCounter(9)" >9</button>
+                        <button mat-menu-item (click)="updateTotalItemsCounter(12)" >12</button>
+
+                    </mat-menu>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </mat-card>
+
+</div>
