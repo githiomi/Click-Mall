@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-products-header',
@@ -6,6 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./products-header.component.css']
 })
 export class ProductsHeaderComponent {
+
+  // Data Binding
+  // Emitters
+  @Output() columnNumberEmitter : EventEmitter<number> = new EventEmitter<number>();
 
   // To keep track of the sort order
   sortOrder: string = 'desc';
@@ -25,5 +29,10 @@ export class ProductsHeaderComponent {
     this.totalProducts = newItemCounter;
   }
 
+  // To update the number of columns in a row of products
+  updateColumnsNumber(newColumns: number): void {
+    // Emit the new number of columns to the 'header' parent
+    this.columnNumberEmitter.emit(newColumns);
+  }
 
 }
