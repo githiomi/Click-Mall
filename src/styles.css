@@ -1,5 +1,9 @@
-/* Project Global Styles */
+/* Tailwind CSS imports */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
+/* Project Global Styles */
 html,
 body {
     height: 100%;
