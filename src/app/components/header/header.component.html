@@ -14,7 +14,7 @@
         <button mat-icon-button [matMenuTriggerFor]="cartList">
 
             <!-- Cart Icon -->
-            <mat-icon matBadge="3" matBadgeColor="accent">
+            <mat-icon matBadge="{{ cartCounter }}" matBadgeColor="accent">
                 shopping_cart
             </mat-icon>
 
@@ -28,7 +28,8 @@
 
                 <!-- Cart counter -->
                 <div class="pb-3 flex justify-between">
-                    <span id="cartCount" class="mr-16">3 item(s)</span>
+                    <span id="cartCount" class="mr-16">
+                        <span class="font-bold">{{ cartCounter }}</span> item(s)</span>
                     <a routerLink="cart">View Cart</a>
                 </div>
 

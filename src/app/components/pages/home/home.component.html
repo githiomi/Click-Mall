@@ -8,6 +8,10 @@
 
             <div class="font-bold">
                 Product Filters
+
+                <app-filters (categoryFilterEmitter)="filterProductsByCategory($event)">
+                    <!-- The product filters go here -->
+                </app-filters>
             </div>
 
         </mat-drawer>
@@ -16,8 +20,7 @@
         <mat-drawer-content class="p-6">
             <!-- Main Page Content Goes Here -->
 
-            <app-products-header
-            (columnNumberEmitter)="changeColumnsLayout($event)">
+            <app-products-header (columnNumberEmitter)="changeColumnsLayout($event)">
                 <!-- The products list header goes here -->
             </app-products-header>
 

@@ -10,6 +10,9 @@ import { Product } from '../../models/Product';
 })
 export class HeaderComponent {
 
+  // To keep track of all the products in the cart
+  cartCounter : number = 3;
+
   product: Product = {
     itemName: "Keyboard",
     itemCounter: 2,

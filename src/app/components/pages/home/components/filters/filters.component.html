@@ -1,0 +1,25 @@
+<div class="productFilters">
+
+    <!-- Shows the title that expands to reveal contents when clicked -->
+    <mat-expansion-panel *ngIf=filterCategories>
+
+        <mat-expansion-panel-header>
+            <!-- The title of the expansion model -->
+            <mat-panel-title class="panel-title">Categories</mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <!-- Expansion List content -->
+        <mat-selection-list [multiple]="false">
+            <!-- Shows the elements in the list -->
+            <mat-list-option *ngFor="let categoryFilter of filterCategories" [value]="categoryFilter">
+
+                <button (click)="categoryFilterSelected(categoryFilter)">
+                    {{ categoryFilter }}
+                </button>
+
+            </mat-list-option>
+        </mat-selection-list>
+
+    </mat-expansion-panel>
+
+</div>
