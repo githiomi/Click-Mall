@@ -28,7 +28,7 @@ export class HeaderComponent {
 
   // Method to checkout the cart
   checkoutCart() {
-    confirm("Are you sure you want to clear the cart?");
+    confirm("Are you sure you want to checkout the cart?");
   }
 
 }
