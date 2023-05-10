@@ -6,8 +6,8 @@
         <!-- Drawer content goes here -->
         <mat-drawer mode="side" class="p-6" opened>
 
-            <div>
-                Filters
+            <div class="font-bold">
+                Product Filters
             </div>
 
         </mat-drawer>
@@ -15,6 +15,11 @@
         <!-- Container to hold the main page content -->
         <mat-drawer-content class="p-6">
             <!-- Main Page Content Goes Here -->
+
+            <app-products-header>
+                <!-- The products list header goes here -->
+            </app-products-header>
+
         </mat-drawer-content>
 
     </mat-drawer-container>

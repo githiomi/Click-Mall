@@ -23,7 +23,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/pages/home/home.component';
-import { ProductsHeaderComponent } from './components/products-header/products-header.component';
+import { ProductsHeaderComponent } from './components/pages/home/components/products-header/products-header.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +36,7 @@ import { ProductsHeaderComponent } from './components/products-header/products-h
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    // --- Custom Moudules
+    // --- Custom Moudules ---
     // For the Side Navigation Menu
     MatSidenavModule,
     // For the grid placement
