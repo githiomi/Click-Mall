@@ -1,1 +1,81 @@
-<p>header works!</p>
+<div class="header">
+
+    <!-- Using the angular material toolbar -->
+    <mat-toolbar class="max-w-7xl mx-auto border-x justify-between">
+        <!-- Toolbar goes here -->
+
+        <!-- Link to home -->
+        <a routerLink="home">
+            Click Mall
+            <!-- <img class="appLogo" src="../../../assets/Images/click_mall_logo_alt.png" alt="Click Mall"> -->
+        </a>
+
+        <!-- Button to Trigger Cart List To Open -->
+        <button mat-icon-button [matMenuTriggerFor]="cartList">
+
+            <!-- Cart Icon -->
+            <mat-icon matBadge="3" matBadgeColor="accent">
+                shopping_cart
+            </mat-icon>
+
+        </button>
+
+        <!-- The cart list menu to be triggered on button click -->
+        <mat-menu #cartList="matMenu">
+
+            <!-- The list to hold the list of items in the cart -->
+            <div class="p-3 divide-y divide-dotted">
+
+                <!-- Cart counter -->
+                <div class="pb-3 flex justify-between">
+                    <span id="cartCount" class="mr-16">3 item(s)</span>
+                    <a routerLink="cart">View Cart</a>
+                </div>
+
+                <!-- Cart Content -->
+                <div class="productsContainer py-3">
+
+                    <div class="productItem flex justify-between font-light mb-2">
+                        Keyboard x {{ product.itemCounter }}
+                        <span class="font-bold"> {{ product.itemPrice | currency }} </span>
+                    </div>
+
+                </div>
+
+                <!-- Cart Total -->
+                <div class="total flex justify-between py-3 font-light">
+                    Cart Total:
+                    <span class="font-bold">{{ getCartTotal() | currency }}</span>
+                </div>
+
+                <!-- Cart Icons -->
+                <div class="cartControlls flex justify-between pt-3">
+
+                    <!-- Clear Cart -->
+                    <div class="clearCart">
+                        <button 
+                        (click)="clearCart()"
+                        class="bg-rose-600 text-white rounded-full w-9 h-9">
+                            <mat-icon class="pt-1">remove_shopping_cart</mat-icon>
+                        </button>
+                    </div>
+
+                    <!-- Complete Cart -->
+                    <div class="checkoutCart">
+                        <button
+                        routerLink="cart"
+                        (click)="checkoutCart()"
+                        class="bg-green-600 text-white rounded-full w-9 h-9">
+                        <mat-icon class="pt-1">shopping_cart</mat-icon>
+                    </button>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </mat-menu>
+
+    </mat-toolbar>
+
+</div>

@@ -1,0 +1,10 @@
+a{
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.appLogo{
+    aspect-ratio: 1 / 1;
+    width: 30%;
+    margin: 2rem;
+}
