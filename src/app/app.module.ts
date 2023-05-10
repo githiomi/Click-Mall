@@ -21,10 +21,12 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 // Imported Components
 import { AppComponent } from './app.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
