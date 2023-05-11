@@ -33,6 +33,11 @@ export class HomeComponent {
 
   }
 
+  // MEthod to check whether the listed products are in full width mode or not
+  isInFullWidth() : boolean {
+    return this.productColumns === 1;
+  }
+
   // Method that will be triggered when the user clicks any change layout icon
   changeColumnsLayout(newProductColumns:number) : void {
     console.log(`Changed Columns Layout number to ${newProductColumns}`);

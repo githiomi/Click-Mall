@@ -30,7 +30,9 @@
 
                 <mat-grid-tile>
                     <!-- Each single product goes in here -->
-                    <app-product-item>
+                    <app-product-item
+                    class="w-full"
+                    [productFullWidth] = "isInFullWidth()">
                         <!-- This is each product item -->
                     </app-product-item>
                 </mat-grid-tile>

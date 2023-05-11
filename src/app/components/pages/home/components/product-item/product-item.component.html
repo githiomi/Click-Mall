@@ -1,27 +1,33 @@
 <div class="productItem">
 
-    <mat-card class="text-center p-3">
+    <mat-card class="p-3" [ngClass]="{ 'text-center' : !isInFullWidthMode() }">
 
-        <!-- Product Image -->
-        <div class="productImage ">
-            <img class="m-1 mx-auto h-[200px]" src="https://via.placeholder.com/150" alt="Product image placeholder">
-        </div>
+        <div [ngClass]="{ 'flex' : isInFullWidthMode() }" class="productItemContent">
 
-        <!-- Product Details -->
-        <div class="productDetails w-full">
+            <!-- Product Image -->
+            <div class="productImage ">
+                <img [ngClass]="{ 'h-[200px]' : !isInFullWidthMode(), 'h-[300px]' : isInFullWidthMode() }"
+                    class="m-1 mx-auto h-[200px]" src="https://via.placeholder.com/150" alt="Product image placeholder">
+            </div>
 
-            <div>
-                <h5 class="productCategory uppercase font-bold">
-                    Shoes
-                </h5>
+            <!-- Product Details -->
+            <div [ngClass]="{'px-8 flex flex-col justify-between' : isInFullWidthMode()}" class="productDetails w-full">
 
-                <p class="productTitle py-2 px-1 font-bold truncate hover:whitespace-normal">
-                    {{product.itemName}}
-                </p>
+                <div>
+                    <h5 class="productCategory uppercase font-bold">
+                        Shoes
+                    </h5>
 
-                <p class="productDescription">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit
-                </p>
+                    <p class="productTitle p-1 font-bold truncate hover:whitespace-normal">
+                        {{product.itemName}}
+                    </p>
+
+                    <p 
+                    *ngIf="isInFullWidthMode()"
+                    class="productDescription">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit
+                    </p>
+                </div>
 
                 <div class="productPurchase flex justify-between align-center">
 
@@ -36,6 +42,7 @@
                     </button>
 
                 </div>
+
             </div>
 
         </div>
