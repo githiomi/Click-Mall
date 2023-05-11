@@ -29,16 +29,16 @@
                     </p>
                 </div>
 
-                <div class="productPurchase flex justify-between align-center">
+                <div class="productPurchase flex px-3 justify-between align-center">
 
                     <!-- The product price -->
-                    <span class="text-orange-500 font-bold cursor-pointer">
+                    <span class=" productPrice text-orange-500 font-bold cursor-pointer">
                         {{ product.itemPrice | currency }}
                     </span>
 
                     <!-- Add to cart button -->
                     <button>
-                        <mat-icon class="text-green-500">shopping_cart</mat-icon>
+                        <mat-icon class="productToCart text-green-500">shopping_cart</mat-icon>
                     </button>
 
                 </div>
