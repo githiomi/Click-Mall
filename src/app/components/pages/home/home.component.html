@@ -1,7 +1,7 @@
-<div class="homeComponent min-h-full max-w-7xl">
+<div class="homeComponent min-h-full max-w-7xl mx-auto border-x">
 
     <!-- The side bar naigation drawer -->
-    <mat-drawer-container [autosize]="true" class="min-h-full max-w-7xl mx-auto border-x">
+    <mat-drawer-container [autosize]="true">
 
         <!-- Drawer content goes here -->
         <mat-drawer mode="side" class="p-6" opened>
@@ -30,6 +30,9 @@
 
                 <mat-grid-tile>
                     <!-- Each single product goes in here -->
+                    <app-product-item>
+                        <!-- This is each product item -->
+                    </app-product-item>
                 </mat-grid-tile>
 
             </mat-grid-list>

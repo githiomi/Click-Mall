@@ -39,7 +39,7 @@ export class HomeComponent {
     this.productColumns = newProductColumns;
 
     // To also update the row height based on the new number of columns
-    this.rowHeight = ROW_HEIGHT[newProductColumns - 1]
+    this.rowHeight = ROW_HEIGHT[newProductColumns]
   }
 
   // Method triggered when the user filters products by category

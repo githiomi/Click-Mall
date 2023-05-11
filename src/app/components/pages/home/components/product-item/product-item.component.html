@@ -1,1 +1,45 @@
-<p>product-item works!</p>
+<div class="productItem">
+
+    <mat-card class="text-center p-3">
+
+        <!-- Product Image -->
+        <div class="productImage ">
+            <img class="m-1 mx-auto h-[200px]" src="https://via.placeholder.com/150" alt="Product image placeholder">
+        </div>
+
+        <!-- Product Details -->
+        <div class="productDetails w-full">
+
+            <div>
+                <h5 class="productCategory uppercase font-bold">
+                    Shoes
+                </h5>
+
+                <p class="productTitle py-2 px-1 font-bold truncate hover:whitespace-normal">
+                    {{product.itemName}}
+                </p>
+
+                <p class="productDescription">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit
+                </p>
+
+                <div class="productPurchase flex justify-between align-center">
+
+                    <!-- The product price -->
+                    <span class="text-orange-500 font-bold cursor-pointer">
+                        {{ product.itemPrice | currency }}
+                    </span>
+
+                    <!-- Add to cart button -->
+                    <button>
+                        <mat-icon class="text-green-500">shopping_cart</mat-icon>
+                    </button>
+
+                </div>
+            </div>
+
+        </div>
+
+    </mat-card>
+
+</div>
