@@ -25,6 +25,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/pages/home/home.component';
 import { ProductsHeaderComponent } from './components/pages/home/components/products-header/products-header.component';
 import { FiltersComponent } from './components/pages/home/components/filters/filters.component';
+import { ProductsItemComponent } from './components/pages/home/components/products-item/products-item.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { FiltersComponent } from './components/pages/home/components/filters/fil
     HeaderComponent,
     HomeComponent,
     ProductsHeaderComponent,
-    FiltersComponent
+    FiltersComponent,
+    ProductsItemComponent
   ],
   imports: [
     BrowserModule,
