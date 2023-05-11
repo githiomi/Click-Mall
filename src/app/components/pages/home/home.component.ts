@@ -1,5 +1,18 @@
 import { Component } from '@angular/core';
 
+
+// Row Mapper to match each column selection with a row
+const ROW_HEIGHT : { [column:number] : number } = {
+
+  // If there i only 1 column, row height = 400px
+  1:400,
+  // Columns = 3, Row Height = 335
+  3:335,
+  // Columns = 4, Row Height = 350
+  4:350
+};
+
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -9,6 +22,9 @@ export class HomeComponent {
 
   // To keep track of the number of products per row
   productColumns : number = 3;
+
+  // To keep track of the number of rows
+  rowHeight : number = ROW_HEIGHT[this.productColumns];
 
   // To keep track of the category filter
   categoryFilter : string | undefined;
@@ -21,6 +37,9 @@ export class HomeComponent {
   changeColumnsLayout(newProductColumns:number) : void {
     console.log(`Changed Columns Layout number to ${newProductColumns}`);
     this.productColumns = newProductColumns;
+
+    // To also update the row height based on the new number of columns
+    this.rowHeight = ROW_HEIGHT[newProductColumns - 1]
   }
 
   // Method triggered when the user filters products by category

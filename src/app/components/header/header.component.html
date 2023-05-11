@@ -30,6 +30,7 @@
                 <div class="pb-3 flex justify-between">
                     <span id="cartCount" class="mr-16">
                         <span class="font-bold">{{ cartCounter }}</span> item(s)</span>
+
                     <a routerLink="cart">View Cart</a>
                 </div>
 
@@ -57,7 +58,7 @@
                         <button 
                         (click)="clearCart()"
                         class="bg-rose-600 text-white rounded-full w-9 h-9">
-                            <mat-icon class="pt-1">remove_shopping_cart</mat-icon>
+                            <mat-icon class="pt-.5">remove_shopping_cart</mat-icon>
                         </button>
                     </div>
 
@@ -67,7 +68,7 @@
                         routerLink="cart"
                         (click)="checkoutCart()"
                         class="bg-green-600 text-white rounded-full w-9 h-9">
-                        <mat-icon class="pt-1">shopping_cart</mat-icon>
+                        <mat-icon class="pt-.5">shopping_cart</mat-icon>
                     </button>
                     </div>
 

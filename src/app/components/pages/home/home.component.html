@@ -1,4 +1,4 @@
-<div class="homeComponent">
+<div class="homeComponent min-h-full max-w-7xl">
 
     <!-- The side bar naigation drawer -->
     <mat-drawer-container [autosize]="true" class="min-h-full max-w-7xl mx-auto border-x">
@@ -23,6 +23,17 @@
             <app-products-header (columnNumberEmitter)="changeColumnsLayout($event)">
                 <!-- The products list header goes here -->
             </app-products-header>
+
+            <!-- All Products Wrapper -->
+            <mat-grid-list gutterSize="16" [cols]="productColumns" [rowHeight]="rowHeight">
+                <!-- The Products go in here -->
+
+                <mat-grid-tile>
+                    <!-- Each single product goes in here -->
+                </mat-grid-tile>
+
+            </mat-grid-list>
+
 
         </mat-drawer-content>
 
