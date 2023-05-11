@@ -25,7 +25,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/pages/home/home.component';
 import { ProductsHeaderComponent } from './components/pages/home/components/products-header/products-header.component';
 import { FiltersComponent } from './components/pages/home/components/filters/filters.component';
-import { ProductsItemComponent } from './components/pages/home/components/products-item/products-item.component';
+import { ProductItemComponent } from './components/pages/home/components/product-item/product-item.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +34,7 @@ import { ProductsItemComponent } from './components/pages/home/components/produc
     HomeComponent,
     ProductsHeaderComponent,
     FiltersComponent,
-    ProductsItemComponent
+    ProductItemComponent
   ],
   imports: [
     BrowserModule,
