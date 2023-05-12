@@ -42,13 +42,12 @@ export class CartComponent implements OnInit{
   cartDataSource : Array <CartItem> = [];
 
   constructor(){
-
   }
 
   // To call when the component initializes
   ngOnInit(): void {
       // Set the cart items to the dta source
-      // this.cartDataSource = this.cart.cartItems; b
+      this.cartDataSource = this.cart.cartItems;
   }
 
   // List of cart column headers

@@ -3,11 +3,16 @@
     <!-- Shown where there are items in the cart -->
     <mat-card *ngIf='cartDataSource.length > 0'>
 
-        <table mat-table [dataSource]="cartDataSource" class="mat-elevation-z8 w-full">
+        <table mat-table [dataSource]="cartDataSource" class="mat-elevation-z10 w-full">
 
             <!-- Columns -->
-            <ng-container matColumnDef="Product Image">
-                
+            <!-- First item in the cartDataSource array -->
+            <ng-container matColumnDef="Image">
+                <th mat-header-cell *matHeaderCellDef>
+                    Image
+                </th>
+                <!-- Table cell -->
+                <td mat-cell *matCellDef="let image of "></td>
             </ng-container>
 
             <!-- Rows -->
