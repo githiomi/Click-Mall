@@ -1,0 +1,25 @@
+.error {
+    min-height: 93vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.errorText {
+    text-transform: uppercase;
+    padding: 1rem;
+}
+
+.toShopping {
+    border: none;
+    text-transform: uppercase;
+    box-shadow: 1px 1px .5rem var(--main-background-color);
+    background: var(--main-theme-color);
+}
+
+.toShopping:hover {
+    transform: translateY(-3%);
+    box-shadow: 1px 1px .8rem var(--main-background-color);
+    transition: all .3s ease-in-out;
+}

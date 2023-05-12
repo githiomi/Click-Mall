@@ -7,7 +7,7 @@
 :root {
     --main-background-color: #1E1E1E;
     --white-text-color: white;
-    --money-green: #f18f01;
+    --main-theme-color: #f18f01;
     --white: white;
     --warning-red: red;
     --transparent: transparent;
@@ -49,7 +49,7 @@ a {
 }
 
 ::-webkit-scrollbar-thumb{
-    background: var(--money-green);
+    background: var(--main-theme-color);
     opacity: .2;
     border-radius: 100vw;
 }

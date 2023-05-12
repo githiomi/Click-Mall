@@ -7,9 +7,10 @@ const ROW_HEIGHT : { [column:number] : number } = {
   // If there i only 1 column, row height = 400px
   1:400,
   // Columns = 3, Row Height = 335
-  3:335,
+  2:335,
   // Columns = 4, Row Height = 350
-  4:350
+  3:350
+  
 };
 
 

@@ -1,5 +1,54 @@
-<div class="cartComponent">
+<div class="cartComponent min-h-full max-w-7xl mx-auto">
 
-    
+    <!-- Shown where there are items in the cart -->
+    <mat-card *ngIf='cartDataSource.length > 0'>
+
+        <table mat-table [dataSource]="cartDataSource" class="mat-elevation-z8 w-full">
+
+            <!-- Columns -->
+            <ng-container matColumnDef="Product Image">
+                
+            </ng-container>
+
+            <!-- Rows -->
+            <!-- Header Row -->
+            <tr mat-header-row *matHeaderRowDef="cartColumnHeaders">
+                <!-- Table header -->
+            </tr>
+
+            <!-- Body Row -->
+            <tr mat-row *matRowDef="let row; columns : cartColumnHeaders">
+                <!-- Table content -->
+            </tr> 
+
+            <!-- Table Footer -->
+            <tr mat-footer-row *matFooterRowDef="cartColumnHeaders">
+                <!-- T -->
+            </tr>
+
+        </table>
+
+    </mat-card>
+
+    <!-- Shown when there are no items in the cart -->
+    <mat-card *ngIf='cartDataSource.length === 0'>
+
+        <div class="error">
+
+            <!-- Error SVG -->
+            <img src="../../../../assets/Images/Error_SVG.png" alt="">
+
+            <!-- Error Text -->
+            <h3 class="errorText">
+                There are currently no items in your cart!
+            </h3>
+
+            <button class="toShopping" routerLink="/home" mat-stroked-button>
+                Start Shopping
+            </button>
+
+        </div>
+
+    </mat-card>
 
 </div>
