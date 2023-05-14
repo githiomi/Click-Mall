@@ -23,3 +23,9 @@
     box-shadow: 1px 1px .8rem var(--main-background-color);
     transition: all .3s ease-in-out;
 }
+
+.itemQuantity {
+    color: var(
+        --main-theme-color
+    )
+}

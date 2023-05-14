@@ -54,7 +54,25 @@
                 </th>
                 <!-- Table cell -->
                 <td mat-cell *matCellDef="let product">
-                    {{ product.quantity }}
+
+                    <!-- To decrease the quantity -->
+                    <button mat-icon-button>
+                        <mat-icon>
+                            remove
+                        </mat-icon>
+                    </button>
+
+                    <span class="itemQuantity">
+                        {{ product.quantity }}
+                    </span>
+
+                    <!-- To increase the quantity -->
+                    <button mat-icon-button>
+                        <mat-icon>
+                            add
+                        </mat-icon>
+                    </button>
+
                 </td>
                 <td mat-footer-cell *matFooterCellDef>
                 </td>
@@ -88,7 +106,7 @@
                     <!-- Button to remove each item from the cart -->
                     <button mat-mini-fab color="warn" class="float-right">
                         <mat-icon>
-                            close
+                            delete
                         </mat-icon>
                     </button>
                 </td>
