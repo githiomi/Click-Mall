@@ -19,11 +19,12 @@ export class HeaderComponent {
   }
   
   // Getters and setters
-  @Input() getCurrentCart() : Cart{
+  @Input() 
+  get currentCart() : Cart{
     return this._currentCart;
   }
 
-  setCurrentCart(cart : Cart) : void{
+  set currentCart(cart : Cart){
     this._currentCart = cart;
 
     // Everytime we set the cart, we update the number of items in the cart
@@ -55,13 +56,29 @@ export class HeaderComponent {
   }
 
   // Method call to clear cart
-  clearCart() {
-    confirm("Are you sure you want to clear the cart?");
+  clearCart() : void {
+    let confirmClear = confirm("Are you sure you want to clear the cart?");
+
+    if (confirmClear) {
+      // If the user consents to clear the cart
+
+    }else {
+      // Consent is not given to clear the cart
+      return;
+    }
   }
 
   // Method to checkout the cart
   checkoutCart() {
-    confirm("Are you sure you want to checkout the cart?");
+    const confirmCheckout = confirm("Are you sure you want to checkout the cart?");
+
+    if (confirmCheckout) {
+      // If the user consents to clear the cart
+
+    }else {
+      // Consent is not given to clear the cart
+      return;
+    }
   }
 
 }

@@ -89,8 +89,11 @@
                 </td>
                 <td mat-footer-cell *matFooterCellDef>
                     <!-- Here is where we display the full cart total -->
-                    <span class="font-bold py-5 block">
-                        <!-- Cart Total: {{ getCartTotal(cart.cartItems) | currency}} -->
+                    <span class="py-5 block">
+                        Cart Total: 
+                        <span class="font-bold">
+                            {{ getCartTotal(cart.cartItems) | currency}}
+                        </span>
                     </span>
                 </td>
             </ng-container>
