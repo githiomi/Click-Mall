@@ -54,13 +54,23 @@ export class CartService {
     this.cart.next({cartItems: currentCart})
 
     // Then show the Snack bar
-    this.snackBar.open(
-      `${cartItem.name} has been added to the cart`,
-      'Close',
-      {
-        duration : 3000
-      }
-    )
+    if ( productInCart ){
+      this.snackBar.open(
+        `One more ${cartItem.name} has been added to the cart`,
+        'Close',
+        {
+          duration : 3000
+        }
+      )
+    }else{
+      this.snackBar.open(
+        `${cartItem.name} has been added to the cart`,
+        'Close',
+        {
+          duration : 3000
+        }
+      )
+    }
 
     console.log(
       this.cart.value

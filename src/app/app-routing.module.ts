@@ -11,12 +11,14 @@ const routes: Routes = [
   {
     // Home route
     path: 'home',
-    component: HomeComponent
+    component: HomeComponent,
+    title: 'Click Mall Homepage'
   },
   {
     // Cart route
     path: 'cart',
-    component: CartComponent
+    component: CartComponent,
+    title: 'Your Click Mall Cart'
   },
   {
     // Setting the default route for rerouting
