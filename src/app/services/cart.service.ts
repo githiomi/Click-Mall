@@ -37,11 +37,17 @@ export class CartService {
     const currentCart = [...this.cart.value.cartItems];
 
     // To check if there is ALREADY a similiar product in the cart
-    const itemsInCart = currentCart.find(
+    const productInCart = currentCart.find(
       item => {
         item.productId === product.productId
       }
     )
+
+    // If product is in cart, then update the quantity
+    if ( productInCart ){
+      // Update the quantity
+      productInCart.productQuantity += 1;
+    }
 
   }
 }

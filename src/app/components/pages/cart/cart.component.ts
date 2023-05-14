@@ -18,6 +18,7 @@ export class CartComponent implements OnInit {
         productId: 1,
         productName: 'Dior Dior',
         productPrice: 1600,
+        productQuantity: 1,
         productImageUrl: 'https://via.placeholder.com/150',
         productCategory: 'Jackets',
         productDescription: 'These are the collest shoes on the block!'
@@ -26,6 +27,7 @@ export class CartComponent implements OnInit {
         productId: 2,
         productName: 'Nike Airforce 1',
         productPrice: 270,
+        productQuantity: 2,
         productImageUrl: 'https://via.placeholder.com/150',
         productCategory: 'Shoes',
         productDescription: 'These are the collest shoes on the block!'

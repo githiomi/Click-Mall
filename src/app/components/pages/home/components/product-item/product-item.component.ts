@@ -21,6 +21,7 @@ export class ProductItemComponent {
     productId: 1,
     productName: 'Nike Airforce 1',
     productPrice: 270,
+    productQuantity: 1,
     productImageUrl: 'https://via.placeholder.com/150',
     productCategory: 'Shoes',
     productDescription: 'These are the collest shoes on the block!'
