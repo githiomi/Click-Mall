@@ -12,9 +12,93 @@
                     Image
                 </th>
                 <!-- Table cell -->
-                <td mat-cell *matCellDef="let image of "></td>
+                <td mat-cell *matCellDef="let product">
+                    <img src="{{product.imageUrl}}" class="productImage w-[100px] my-2" alt="Product Image" />
+                </td>
+                <td mat-footer-cell *matFooterCellDef>
+                    <button mat-stroked-button routerLink="/home">
+                        Continue Shopping
+                    </button>
+                </td>
             </ng-container>
 
+            <ng-container matColumnDef="Name">
+                <th mat-header-cell *matHeaderCellDef>
+                    Name
+                </th>
+                <!-- Table cell -->
+                <td mat-cell *matCellDef="let product">
+                    <p class="truncate font-bold max-w-xs">
+                        {{ product.name }}
+                    </p>
+                </td>
+                <td mat-footer-cell *matFooterCellDef>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="Price">
+                <th mat-header-cell *matHeaderCellDef>
+                    Price Per Item
+                </th>
+                <!-- Table cell -->
+                <td mat-cell *matCellDef="let product">
+                    {{ product.price | currency }}
+                </td>
+                <td mat-footer-cell *matFooterCellDef>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="Quantity">
+                <th mat-header-cell *matHeaderCellDef>
+                    Quantity
+                </th>
+                <!-- Table cell -->
+                <td mat-cell *matCellDef="let product">
+                    {{ product.quantity }}
+                </td>
+                <td mat-footer-cell *matFooterCellDef>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="Total">
+                <th mat-header-cell *matHeaderCellDef>
+                    Total Cost
+                </th>
+                <!-- Table cell -->
+                <td mat-cell class="font-bold" *matCellDef="let product">
+                    {{ (product.quantity * product.price) | currency }}
+                </td>
+                <td mat-footer-cell *matFooterCellDef>
+                    <!-- Here is where we display the full cart total -->
+                    <span class="font-bold py-5 block">
+                        <!-- {{ getCartTotal(cart.cartItems) | currency}} -->
+                    </span>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="Actions">
+                <th mat-header-cell *matHeaderCellDef>
+                    <!-- Button to clear the entire cart -->
+                    <button (click)="clearCart()" mat-raised-button color="warn" class="float-right">
+                        Clear Cart
+                    </button>
+                </th>
+                <!-- Table cell -->
+                <td mat-cell *matCellDef="let product">
+                    <!-- Button to remove each item from the cart -->
+                    <button mat-mini-fab color="warn" class="float-right">
+                        <mat-icon>
+                            close
+                        </mat-icon>
+                    </button>
+                </td>
+                <td mat-footer-cell *matFooterCellDef>
+                    <!-- Here is where we display the full cart total -->
+                    <span class="font-bold py-5 block">
+                        <!-- {{ getCartTotal(cart.cartItems) | currency}} -->
+                    </span>
+                </td>
+            </ng-container>
             <!-- Rows -->
             <!-- Header Row -->
             <tr mat-header-row *matHeaderRowDef="cartColumnHeaders">
@@ -24,11 +108,11 @@
             <!-- Body Row -->
             <tr mat-row *matRowDef="let row; columns : cartColumnHeaders">
                 <!-- Table content -->
-            </tr> 
+            </tr>
 
             <!-- Table Footer -->
             <tr mat-footer-row *matFooterRowDef="cartColumnHeaders">
-                <!-- T -->
+                <!-- Table footer goes here -->
             </tr>
 
         </table>

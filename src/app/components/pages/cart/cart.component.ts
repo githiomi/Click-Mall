@@ -7,7 +7,7 @@ import { CartItem } from 'src/app/models/Cart-Item';
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css']
 })
-export class CartComponent implements OnInit{
+export class CartComponent implements OnInit {
 
   // To hold the products kept in the cart
   cart: Cart = {
@@ -39,19 +39,19 @@ export class CartComponent implements OnInit{
   };
 
   // To store the products data from the API
-  cartDataSource : Array <CartItem> = [];
+  cartDataSource: Array<CartItem> = [];
 
-  constructor(){
+  constructor() {
   }
 
   // To call when the component initializes
   ngOnInit(): void {
-      // Set the cart items to the dta source
-      this.cartDataSource = this.cart.cartItems;
+    // Set the cart items to the dta source
+    this.cartDataSource = this.cart.cartItems;
   }
 
   // List of cart column headers
-  cartColumnHeaders : Array<string> = [
+  cartColumnHeaders: Array<string> = [
     'Image',
     'Name',
     'Price',
@@ -60,4 +60,23 @@ export class CartComponent implements OnInit{
     'Actions'
   ]
 
+  // Method to calculate the total amount payable for items in the cart
+  // getCartTotal(cartItems: Array<CartItem>): number {
+
+  //   return cartItems.map(
+  //     cartItem => {
+  //       cartItem.price * cartItem.quantity
+  //     }
+  //   ).reduce(
+  //     (previousValue, currentValue) => {
+  //       previousValue + currentValue
+  //     }, 0
+  //   );
+
+  // }
+
+  // Method called when the clear cart items buttin is clicked
+  clearCart(): void {
+    confirm(`Are you sure you want to remove all ${this.cart.cartItems.length} items from the cart?`)
+  }
 }
