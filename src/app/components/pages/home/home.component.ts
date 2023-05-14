@@ -65,14 +65,22 @@ export class HomeComponent {
 
   // To catch the product emitted by the 'product-item' class and update the service
   addProductToCart(addedProduct: Product): void {
+
     // Call the add product method from the service
     this.cartService.addProductToCart({
-      product: addedProduct.productImageUrl,
+      price : addedProduct.productPrice,
+      quantity: addedProduct.productQuantity,
       name: addedProduct.productName,
-      price: addedProduct.productPrice,
-      quantity: 1,
-      id: addedProduct.productId
+      id: addedProduct.productId,
+      product: addedProduct.productImageUrl
     });
+
+      // product: addedProduct.productImageUrl,
+      // name: addedProduct.productName,
+      // price: addedProduct.productPrice,
+      // quantity: 1,
+      // id: addedProduct.productId
+
   }
 
 }
