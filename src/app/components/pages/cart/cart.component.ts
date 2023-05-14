@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Cart } from 'src/app/models/Cart';
-import { Product } from 'src/app/models/Product';
+import { CartItem } from 'src/app/models/Cart-Item';
 
 @Component({
   selector: 'app-cart',
@@ -14,29 +14,25 @@ export class CartComponent implements OnInit {
     cartItems: [
 
       {
-        productId: 1,
-        productName: 'Dior Dior',
-        productPrice: 1600,
-        productQuantity: 1,
-        productImageUrl: 'https://via.placeholder.com/150',
-        productCategory: 'Jackets',
-        productDescription: 'These are the collest shoes on the block!'
+        product: "http://via.placeholder.com/150",
+        name: 'Nike Air Force 1s',
+        price: 160,
+        quantity: 1,
+        id: 1
       },
       {
-        productId: 2,
-        productName: 'Nike Airforce 1',
-        productPrice: 270,
-        productQuantity: 2,
-        productImageUrl: 'https://via.placeholder.com/150',
-        productCategory: 'Shoes',
-        productDescription: 'These are the collest shoes on the block!'
+        product: "http://via.placeholder.com/150",
+        name: 'Laptop Stand',
+        price: 270,
+        quantity: 1,
+        id: 2
       }
 
     ]
   };
 
   // To store the products data from the API
-  cartDataSource: Array<Product> = [];
+  cartDataSource: Array<CartItem> = [];
 
   constructor() {
   }
@@ -78,13 +74,13 @@ export class CartComponent implements OnInit {
   }
 
   // To add the amount of an item in the cart
-  addQuantity(cartItem: Product): void {
-    cartItem.productQuantity += 1;
+  addQuantity(cartItem: CartItem): void {
+    cartItem.quantity += 1;
   }
 
   // To remove the amount of an item in the cart
-  reduceQuantity(cartItem: Product): void {
-    cartItem.productQuantity -= 1;
+  reduceQuantity(cartItem: CartItem): void {
+    cartItem.quantity -= 1;
   }
 
 }

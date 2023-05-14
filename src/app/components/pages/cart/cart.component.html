@@ -12,8 +12,8 @@
                     Image
                 </th>
                 <!-- Table cell -->
-                <td mat-cell *matCellDef="let product">
-                    <img src="{{product.productImageUrl}}" class="productImage w-[100px] my-2" alt="Product Image" />
+                <td mat-cell *matCellDef="let cartItem">
+                    <img src="{{cartItem.product}}" class="productImage w-[100px] my-2" alt="Product Image" />
                 </td>
                 <td mat-footer-cell *matFooterCellDef>
                     <button mat-stroked-button routerLink="/home">
@@ -27,9 +27,9 @@
                     Name
                 </th>
                 <!-- Table cell -->
-                <td mat-cell *matCellDef="let product">
+                <td mat-cell *matCellDef="let cartItem">
                     <p class="productName truncate font-bold max-w-xs block">
-                        {{ product.productName }}
+                        {{ cartItem.name }}
                     </p>
                 </td>
                 <td mat-footer-cell *matFooterCellDef>
@@ -41,8 +41,8 @@
                     Price
                 </th>
                 <!-- Table cell -->
-                <td mat-cell *matCellDef="let product">
-                    {{ product.productPrice | currency }}
+                <td mat-cell *matCellDef="let cartItem">
+                    {{ cartItem.price | currency }}
                 </td>
                 <td mat-footer-cell *matFooterCellDef>
                 </td>
@@ -53,28 +53,22 @@
                     Quantity
                 </th>
                 <!-- Table cell -->
-                <td mat-cell *matCellDef="let product">
+                <td mat-cell *matCellDef="let cartItem">
 
                     <!-- To decrease the quantity -->
-                    <button 
-                    class="quantityChange"
-                    (click)="reduceQuantity(product)"
-                    mat-icon-button>
+                    <button class="quantityChange" (click)="reduceQuantity(cartItem)" mat-icon-button>
                         <mat-icon>
                             remove
                         </mat-icon>
                     </button>
 
                     <span class="productQuantity">
-                        {{ product.productQuantity }}
+                        {{ cartItem.quantity }}
                     </span>
 
                     <!-- To increase the quantity -->
-                    <button 
-                    class="quantityChange"
-                    class="quantityChange"
-                    (click)="addQuantity(product)"
-                    mat-icon-button>
+                    <button class="quantityChange" class="quantityChange" (click)="addQuantity(cartItem)"
+                        mat-icon-button>
                         <mat-icon>
                             add
                         </mat-icon>
@@ -90,8 +84,8 @@
                     Total
                 </th>
                 <!-- Table cell -->
-                <td mat-cell class="font-bold" *matCellDef="let product">
-                    {{ (product.productQuantity * product.productPrice) | currency }}
+                <td mat-cell class="font-bold" *matCellDef="let cartItem">
+                    {{ (cartItem.quantity * cartItem.price) | currency }}
                 </td>
                 <td mat-footer-cell *matFooterCellDef>
                     <!-- Here is where we display the full cart total -->
@@ -109,7 +103,7 @@
                     </button>
                 </th>
                 <!-- Table cell -->
-                <td mat-cell *matCellDef="let product">
+                <td mat-cell *matCellDef="let cartItem">
                     <!-- Button to remove each item from the cart -->
                     <button mat-mini-fab color="warn" class="float-right">
                         <mat-icon>

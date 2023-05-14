@@ -7,8 +7,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { BehaviorSubject } from 'rxjs';
 
 // The interfaces imports
-import { Product } from '../models/Product';
 import { Cart } from '../models/Cart';
+import { CartItem } from '../models/Cart-Item';
 
 
 @Injectable({
@@ -31,23 +31,44 @@ export class CartService {
   ) { }
 
   // Method that will update the cart with the new product
-  addProductToCart(product : Product) : void {
+  addProductToCart(cartItem : CartItem) : void {
 
     // We don't interfere with the old array, so we create a new array
     const currentCart = [...this.cart.value.cartItems];
 
     // To check if there is ALREADY a similiar product in the cart
-    const productInCart = currentCart.find(
+    const productIsInCart = currentCart.find(
       item => {
-        item.productId === product.productId
+        item.id === cartItem.id
       }
     )
 
     // If product is in cart, then update the quantity
-    if ( productInCart ){
+    if ( productIsInCart ){
       // Update the quantity
-      productInCart.productQuantity += 1;
+      productIsInCart.quantity += 1;
     }
+    else{
+      // Add the product to the cart
+      currentCart.push(cartItem);
+    }
+
+    // We then emit the new product so that all subscribers can catch it
+    this.cart.next({cartItems: currentCart})
+
+    // Then show the Snack bar
+    this.snackBar.open(
+      `${cartItem.name} has been added to the cart`,
+      'Close',
+      {
+        duration : 2000
+      }
+    )
+
+    console.log(
+      this.cart.value
+    )
+
 
   }
 }

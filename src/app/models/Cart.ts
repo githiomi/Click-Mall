@@ -1,8 +1,8 @@
 // Import the product item interface
-import { Product } from './Product';
+import { CartItem } from './Cart-Item';
 
 export interface Cart {
 
-    cartItems : Array<Product>;
+    cartItems : Array<CartItem>;
 
 }

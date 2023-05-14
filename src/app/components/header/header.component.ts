@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 // Interface import
-import { Product } from '../../models/Product';
+import { CartItem } from 'src/app/models/Cart-Item';
 
 @Component({
   selector: 'app-header',
@@ -11,16 +11,14 @@ import { Product } from '../../models/Product';
 export class HeaderComponent {
 
   // To keep track of all the products in the cart
-  cartCounter: number = 3;
+  cartCounter: number = 1;
 
-  product: Product = {
-    productId: 1,
-    productName: 'Nike Airforce 1',
-    productPrice: 270,
-    productQuantity: 1,
-    productImageUrl: 'https://via.placeholder.com/150',
-    productCategory: 'Shoes',
-    productDescription: 'These are the collest shoes on the block!'
+  product: CartItem = {
+    product: 'http://via.placeholder.com/150',
+    name: 'Laptop Stand',
+    price: 270,
+    quantity: 1,
+    id: 2
   }
 
   // Method call to get cart total

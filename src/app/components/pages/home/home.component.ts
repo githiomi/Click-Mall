@@ -3,17 +3,20 @@ import { Component } from '@angular/core';
 // Import the product interface class
 import { Product } from '../../../models/Product';
 
+// Import the cart service
+import { CartService } from '../../../services/cart.service';
+
 
 // Row Mapper to match each column selection with a row
-const ROW_HEIGHT : { [column:number] : number } = {
+const ROW_HEIGHT: { [column: number]: number } = {
 
   // If there i only 1 column, row height = 400px
-  1:400,
+  1: 400,
   // Columns = 3, Row Height = 335
-  2:335,
+  2: 335,
   // Columns = 4, Row Height = 350
-  3:350
-  
+  3: 350
+
 };
 
 
@@ -25,25 +28,28 @@ const ROW_HEIGHT : { [column:number] : number } = {
 export class HomeComponent {
 
   // To keep track of the number of products per row
-  productColumns : number = 3;
+  productColumns: number = 3;
 
   // To keep track of the number of rows
-  rowHeight : number = ROW_HEIGHT[this.productColumns];
+  rowHeight: number = ROW_HEIGHT[this.productColumns];
 
   // To keep track of the category filter
-  categoryFilter : string | undefined;
+  categoryFilter: string | undefined;
 
-  constructor(){
+  constructor(
+    // Inject the cart service
+    private cartService: CartService
+  ) {
 
   }
 
   // MEthod to check whether the listed products are in full width mode or not
-  isInFullWidth() : boolean {
+  isInFullWidth(): boolean {
     return this.productColumns === 1;
   }
 
   // Method that will be triggered when the user clicks any change layout icon
-  changeColumnsLayout(newProductColumns:number) : void {
+  changeColumnsLayout(newProductColumns: number): void {
     console.log(`Changed Columns Layout number to ${newProductColumns}`);
     this.productColumns = newProductColumns;
 
@@ -52,13 +58,21 @@ export class HomeComponent {
   }
 
   // Method triggered when the user filters products by category
-  filterProductsByCategory(categorySelected : any) : void{
+  filterProductsByCategory(categorySelected: any): void {
     console.log(`You selected the ${categorySelected}`);
     this.categoryFilter = categorySelected;
   }
 
   // To catch the product emitted by the 'product-item' class and update the service
-  addProductToCart(addedProduct : Product) : void {
+  addProductToCart(addedProduct: Product): void {
+    // Call the add product method from the service
+    this.cartService.addProductToCart({
+      product: addedProduct.productImageUrl,
+      name: addedProduct.productName,
+      price: addedProduct.productPrice,
+      quantity: 1,
+      id: addedProduct.productId
+    });
   }
 
 }
