@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Cart } from 'src/app/models/Cart';
-import { CartItem } from 'src/app/models/Cart-Item';
 import { Product } from 'src/app/models/Product';
 
 @Component({
@@ -79,13 +78,13 @@ export class CartComponent implements OnInit {
   }
 
   // To add the amount of an item in the cart
-  addQuantity(cartItem: CartItem): void {
-    cartItem.quantity += 1;
+  addQuantity(cartItem: Product): void {
+    cartItem.productQuantity += 1;
   }
 
   // To remove the amount of an item in the cart
-  reduceQuantity(cartItem: CartItem): void {
-    cartItem.quantity -= 1;
+  reduceQuantity(cartItem: Product): void {
+    cartItem.productQuantity -= 1;
   }
 
 }
