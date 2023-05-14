@@ -17,31 +17,37 @@ export class HeaderComponent {
   private _currentCart : Cart = {
     cartItems : []
   }
-
-  // To keep track of all the products in the cart
-  cartCounter: number = 0;  // Starts at 0
-
-  product: CartItem = {
-    product: 'http://via.placeholder.com/150',
-    name: 'Laptop Stand',
-    price: 270,
-    quantity: 1,
-    id: 2
-  }
-
-  constructor(
-    // Inject the cart service
-    private cartService: CartService
-  ) {}
-
+  
   // Getters and setters
-  @Input() getCurrentCart(){
+  @Input() getCurrentCart() : Cart{
     return this._currentCart;
   }
 
   setCurrentCart(cart : Cart) : void{
     this._currentCart = cart;
+
+    // Everytime we set the cart, we update the number of items in the cart
+    this.cartCounter = cart.cartItems
+                            .map ( cartItem => cartItem.quantity)
+                            .reduce((previousCount, currentCount) => previousCount + currentCount, 0);
   }
+
+  product : CartItem = {
+    product: 'https://via.placeholder.com/150',
+    name: 'Samsung Galaxy Book 2 Pro',
+    price: 1200,
+    quantity: 1,
+    id: 1
+  }
+
+  // To keep track of all the products in the cart
+  cartCounter: number = 0;  // Starts at 0 by default
+
+  constructor(
+    // Inject the cart service
+    private _cartService: CartService
+  ) {}
+
 
   // Method call to get cart total
   getCartTotal() {

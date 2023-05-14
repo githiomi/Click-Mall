@@ -38,7 +38,9 @@
                 <div class="productsContainer py-3">
 
                     <div class="productItem flex justify-between font-light mb-2">
-                        Keyboard
+                        <span class="productName truncate block">
+                            {{ product.name }}
+                        </span>
                         <span class="font-bold"> {{ product.price | currency }} </span>
                     </div>
 
