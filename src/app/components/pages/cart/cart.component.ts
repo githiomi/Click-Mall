@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+
+// Interface imports
 import { Cart } from 'src/app/models/Cart';
 import { CartItem } from 'src/app/models/Cart-Item';
+
+// Service imports
+import { CartService } from '../../../services/cart.service';
 
 @Component({
   selector: 'app-cart',
@@ -34,7 +39,10 @@ export class CartComponent implements OnInit {
   // To store the products data from the API
   cartDataSource: Array<CartItem> = [];
 
-  constructor() {
+  constructor(
+    // Inject the cart service
+    private _cartService: CartService
+  ) {
   }
 
   // To call when the component initializes
@@ -56,9 +64,8 @@ export class CartComponent implements OnInit {
   // Method to calculate the total amount payable for items in the cart
   getCartTotal(cartItems: Array<CartItem>): number {
 
-    return cartItems
-                    .map(item => item.price * item.quantity)
-                    .reduce( (previousSum, currentSum) => previousSum + currentSum, 0)    
+    // Call method from the cart service
+    return this._cartService.getCartTotal(cartItems); 
 
   }
 

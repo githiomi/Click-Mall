@@ -15,7 +15,15 @@ import { CartService } from '../../services/cart.service';
 export class HeaderComponent {
 
   private _currentCart : Cart = {
-    cartItems : []
+    cartItems : [
+      {
+        product: 'https://via.placeholder.com/150',
+        name: 'Samsung Galaxy Book 2 Pro',
+        price: 1200,
+        quantity: 1,
+        id: 1
+      }
+    ]
   }
   
   // Getters and setters
@@ -33,16 +41,8 @@ export class HeaderComponent {
                             .reduce((previousCount, currentCount) => previousCount + currentCount, 0);
   }
 
-  product : CartItem = {
-    product: 'https://via.placeholder.com/150',
-    name: 'Samsung Galaxy Book 2 Pro',
-    price: 1200,
-    quantity: 1,
-    id: 1
-  }
-
   // To keep track of all the products in the cart
-  cartCounter: number = 0;  // Starts at 0 by default
+  cartCounter: number = this.currentCart.cartItems.length;  // Starts at 0 by default
 
   constructor(
     // Inject the cart service
@@ -51,8 +51,8 @@ export class HeaderComponent {
 
 
   // Method call to get cart total
-  getCartTotal() {
-    return 10.57 * 2;
+  getCartTotal(cartItems : Array<CartItem>): number {
+    return this._cartService.getCartTotal(cartItems);
   }
 
   // Method call to clear cart

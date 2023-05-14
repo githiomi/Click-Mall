@@ -40,9 +40,12 @@
                     <div
                     *ngFor="let cartItem of currentCart.cartItems" class="productItem flex justify-between font-light mb-2">
                         <span class="productName truncate block">
-                            {{ product.name }}
+                            {{ cartItem.name }} 
+                            <span class="font-bold">x</span>
+                            {{ cartItem.quantity}}
                         </span>
-                        <span class="font-bold"> {{ product.price | currency }} </span>
+
+                        <span class="font-bold"> {{ cartItem.price | currency }} </span>
                     </div>
 
                 </div>
@@ -50,7 +53,7 @@
                 <!-- Cart Total -->
                 <div class="total flex justify-between py-3 font-light">
                     Cart Total:
-                    <span class="font-bold">{{ getCartTotal() | currency }}</span>
+                    <span class="font-bold">{{ getCartTotal(currentCart.cartItems) | currency }}</span>
                 </div>
 
                 <!-- Cart Icons -->

@@ -75,7 +75,14 @@ export class CartService {
     console.log(
       this.cart.value
     )
+  }
 
+  // Method to calculate the total cost of items added to the cart
+  getCartTotal (cartItems : Array<CartItem>) : number {
+
+    return cartItems
+                    .map(item => item.price * item.quantity)
+                    .reduce( (previousSum, currentSum) => previousSum + currentSum, 0)    
 
   }
 }
