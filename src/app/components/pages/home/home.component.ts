@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 
+// Import the product interface class
+import { Product } from '../../../models/Product';
+
 
 // Row Mapper to match each column selection with a row
 const ROW_HEIGHT : { [column:number] : number } = {
@@ -52,6 +55,10 @@ export class HomeComponent {
   filterProductsByCategory(categorySelected : any) : void{
     console.log(`You selected the ${categorySelected}`);
     this.categoryFilter = categorySelected;
+  }
+
+  // To catch the product emitted by the 'product-item' class and update the service
+  addProductToCart(addedProduct : Product) : void {
   }
 
 }
