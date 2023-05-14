@@ -57,6 +57,7 @@
 
                     <!-- To decrease the quantity -->
                     <button 
+                    class="quantityChange"
                     (click)="reduceQuantity(product)"
                     mat-icon-button>
                         <mat-icon>
@@ -70,6 +71,8 @@
 
                     <!-- To increase the quantity -->
                     <button 
+                    class="quantityChange"
+                    class="quantityChange"
                     (click)="addQuantity(product)"
                     mat-icon-button>
                         <mat-icon>
@@ -121,6 +124,7 @@
                     </span>
                 </td>
             </ng-container>
+
             <!-- Rows -->
             <!-- Header Row -->
             <tr mat-header-row *matHeaderRowDef="cartColumnHeaders">
