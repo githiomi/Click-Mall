@@ -15,17 +15,15 @@
 
                 <div>
                     <h5 class="productCategory uppercase font-bold">
-                        Shoes
+                        {{product.productCategory}}
                     </h5>
 
                     <p class="productTitle p-1 font-bold truncate hover:whitespace-normal">
                         {{product.productName}}
                     </p>
 
-                    <p 
-                    *ngIf="isInFullWidthMode()"
-                    class="productDescription">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit
+                    <p *ngIf="isInFullWidthMode()" class="productDescription">
+                        {{product.productDescription}}
                     </p>
                 </div>
 
@@ -37,8 +35,7 @@
                     </span>
 
                     <!-- Add to cart button -->
-                    <button
-                    (click)="addProductToCart(product)">
+                    <button (click)="addProductToCart()">
                         <mat-icon class="productToCart text-green-500">shopping_cart</mat-icon>
                     </button>
 

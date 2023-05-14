@@ -18,13 +18,13 @@ export class ProductItemComponent {
 
   // Product Placeholder
   product: Product = {
-    productId: 1,
-    productName: 'Nike Airforce 1',
-    productPrice: 270,
+    productId: 3,
+    productName: 'Samsung Galaxy Book 2 Pro',
+    productPrice: 1270,
     productQuantity: 1,
     productImageUrl: 'https://via.placeholder.com/150',
-    productCategory: 'Shoes',
-    productDescription: 'These are the collest shoes on the block!'
+    productCategory: 'Laptop',
+    productDescription: 'These are the collest shoes on the block! You should get one'
   }
 
   // To check if the product is in full width mode
@@ -33,8 +33,8 @@ export class ProductItemComponent {
   }
 
   // Method that will add the product to the user's cart
-  addProductToCart(product : Product) : void {
-    this.addProductToCartEmitter.emit(product);
+  addProductToCart() : void {
+    this.addProductToCartEmitter.emit(this.product);
   }
 
 }

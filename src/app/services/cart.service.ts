@@ -36,20 +36,17 @@ export class CartService {
     // We don't interfere with the old array, so we create a new array
     const currentCart = [...this.cart.value.cartItems];
 
-    // To check if there is ALREADY a similiar product in the cart
-    const productIsInCart = currentCart.find(
-      item => {
-        item.id === cartItem.id
-      }
-    )
+    const productInCart = currentCart.find(item => item.id === cartItem.id);
 
     // If product is in cart, then update the quantity
-    if ( productIsInCart ){
+    if ( productInCart ) {
       // Update the quantity
-      productIsInCart.quantity += 1;
+      console.log("Updating quantity");
+      productInCart.quantity += 1;
     }
     else{
       // Add the product to the cart
+      console.log("Pushing new product to cart");
       currentCart.push(cartItem);
     }
 
@@ -61,7 +58,7 @@ export class CartService {
       `${cartItem.name} has been added to the cart`,
       'Close',
       {
-        duration : 2000
+        duration : 3000
       }
     )
 
