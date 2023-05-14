@@ -26,3 +26,13 @@ a{
 .productItem {
     font-size: .9rem;
 }
+
+/* If cart is empty */
+.emptyCart {
+    text-align: center;
+    font-size: .9rem;
+}
+
+.cartEmptySVG {
+    width: 20rem;
+}

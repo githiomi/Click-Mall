@@ -14,9 +14,7 @@
         <button mat-icon-button [matMenuTriggerFor]="cartList">
 
             <!-- Cart Icon -->
-            <mat-icon 
-            [matBadgeHidden]="cartCounter === 0"
-            [matBadge]="cartCounter" matBadgeColor="accent">
+            <mat-icon [matBadgeHidden]="cartCounter === 0" [matBadge]="cartCounter" matBadgeColor="accent">
                 shopping_cart
             </mat-icon>
 
@@ -26,7 +24,7 @@
         <mat-menu #cartList="matMenu">
 
             <!-- The list to hold the list of items in the cart -->
-            <div class="p-3 divide-y divide-dotted">
+            <div *ngIf="cartCounter > 0" class="p-3 divide-y divide-dotted">
 
                 <!-- Cart counter -->
                 <div class="pb-3 flex justify-between">
@@ -59,25 +57,29 @@
 
                     <!-- Clear Cart -->
                     <div class="clearCart">
-                        <button 
-                        (click)="clearCart()"
-                        class="bg-rose-600 text-white rounded-full w-9 h-9">
+                        <button (click)="clearCart()" class="bg-rose-600 text-white rounded-full w-9 h-9">
                             <mat-icon class="pt-.5">remove_shopping_cart</mat-icon>
                         </button>
                     </div>
 
                     <!-- Complete Cart -->
                     <div class="checkoutCart">
-                        <button
-                        routerLink="cart"
-                        (click)="checkoutCart()"
-                        class="bg-green-600 text-white rounded-full w-9 h-9">
-                        <mat-icon class="pt-.5">shopping_cart</mat-icon>
-                    </button>
+                        <button routerLink="cart" (click)="checkoutCart()"
+                            class="bg-green-600 text-white rounded-full w-9 h-9">
+                            <mat-icon class="pt-.5">shopping_cart</mat-icon>
+                        </button>
                     </div>
 
                 </div>
 
+            </div>
+
+            <!-- If there are no items in the cart -->
+            <div *ngIf="cartCounter === 0" class="emptyCart">
+                <img class="cartEmptySVG" src="../../../assets/Images/Error_SVG.png" />
+                <p class="nothingToSee font-bold uppercase">
+                    Nothing in your cart yet!
+                </p>
             </div>
 
         </mat-menu>
