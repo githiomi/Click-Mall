@@ -85,4 +85,23 @@ export class CartService {
                     .reduce( (previousSum, currentSum) => previousSum + currentSum, 0)    
 
   }
+
+  // MEthod to remove all items from the cart and empty the cart
+  emptyCart() : void {
+    // Reset the cart being emitted
+    this.cart.next(
+      {cartItems : []}
+    );
+
+    // Show snackbar to inform the user
+    this.snackBar.open(
+      "Your cart has successfully been cleared",
+      'Close',
+      { 
+        duration : 2000
+      }
+    );
+    
+  }
+
 }

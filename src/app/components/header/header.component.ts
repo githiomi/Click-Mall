@@ -61,7 +61,8 @@ export class HeaderComponent {
 
     if (confirmClear) {
       // If the user consents to clear the cart
-
+      // Call service to empty the cart
+      this._cartService.emptyCart();
     }else {
       // Consent is not given to clear the cart
       return;

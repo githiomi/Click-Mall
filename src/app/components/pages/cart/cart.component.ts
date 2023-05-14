@@ -71,7 +71,15 @@ export class CartComponent implements OnInit {
 
   // Method called when the clear cart items buttin is clicked
   clearCart(): void {
-    confirm(`Are you sure you want to remove all ${this.cart.cartItems.length} items from the cart?`)
+    const confirmClear = confirm(`Are you sure you want to remove all ${this.cart.cartItems.length} items from the cart?`);
+
+    // IF the user consents to remove all items from the cart
+    if (confirmClear){
+      // Clear the cart using the cart service
+      this._cartService.emptyCart();
+    }else {
+      return;
+    }
   }
 
   // To add the amount of an item in the cart
