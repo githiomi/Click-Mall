@@ -108,7 +108,9 @@
                 <!-- Table cell -->
                 <td mat-cell *matCellDef="let cartItem">
                     <!-- Button to remove each item from the cart -->
-                    <button mat-mini-fab color="warn" class="float-right">
+                    <button
+                    (click) = "removeItemFromCart(cartItem)" 
+                    mat-mini-fab color="warn" class="float-right">
                         <mat-icon>
                             delete
                         </mat-icon>

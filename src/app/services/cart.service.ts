@@ -18,20 +18,20 @@ export class CartService {
 
   // This is the property that will hold all the cart items
   // We can subscribe to the subject to get changes when they occur
-  cart = new BehaviorSubject<Cart> (
+  cart = new BehaviorSubject<Cart>(
     {
-      cartItems : []
+      cartItems: []
     }
   )
 
 
   constructor(
     // For the snack bar component to inform that a new item has been added
-    private snackBar : MatSnackBar
+    private snackBar: MatSnackBar
   ) { }
 
   // Method that will update the cart with the new product
-  addProductToCart(cartItem : CartItem) : void {
+  addProductToCart(cartItem: CartItem): void {
 
     // We don't interfere with the old array, so we create a new array
     const currentCart = [...this.cart.value.cartItems];
@@ -39,35 +39,35 @@ export class CartService {
     const productInCart = currentCart.find(item => item.id === cartItem.id);
 
     // If product is in cart, then update the quantity
-    if ( productInCart ) {
+    if (productInCart) {
       // Update the quantity
       console.log("Updating quantity");
       productInCart.quantity += 1;
     }
-    else{
+    else {
       // Add the product to the cart
       console.log("Pushing new product to cart");
       currentCart.push(cartItem);
     }
 
     // We then emit the new product so that all subscribers can catch it
-    this.cart.next({cartItems: currentCart})
+    this.cart.next({ cartItems: currentCart })
 
     // Then show the Snack bar
-    if ( productInCart ){
+    if (productInCart) {
       this.snackBar.open(
         `One more ${cartItem.name} has been added to the cart`,
         'Close',
         {
-          duration : 3000
+          duration: 3000
         }
       )
-    }else{
+    } else {
       this.snackBar.open(
         `${cartItem.name} has been added to the cart`,
         'Close',
         {
-          duration : 3000
+          duration: 3000
         }
       )
     }
@@ -78,30 +78,58 @@ export class CartService {
   }
 
   // Method to calculate the total cost of items added to the cart
-  getCartTotal (cartItems : Array<CartItem>) : number {
+  getCartTotal(cartItems: Array<CartItem>): number {
 
     return cartItems
-                    .map(item => item.price * item.quantity)
-                    .reduce( (previousSum, currentSum) => previousSum + currentSum, 0)    
+      .map(item => item.price * item.quantity)
+      .reduce((previousSum, currentSum) => previousSum + currentSum, 0)
 
   }
 
   // MEthod to remove all items from the cart and empty the cart
-  emptyCart() : void {
+  emptyCart(): void {
     // Reset the cart being emitted
     this.cart.next(
-      {cartItems : []}
+      { cartItems: [] }
     );
 
     // Show snackbar to inform the user
     this.snackBar.open(
       "Your cart has successfully been cleared",
       'Close',
-      { 
-        duration : 2000
+      {
+        duration: 2000
       }
     );
-    
+
+  }
+
+  // Service method to remove one specific item from the cart
+  removeCartItem(cartItem: CartItem): void {
+
+    // Loop though the cart items and remove the one with a matching id
+    const filteredItems = this.cart.value.cartItems
+      .filter(
+        item => {
+          // Filter out the item with a matching id
+          item.id !== cartItem.id
+        }
+      );
+
+     // Update the cart with the new filtered cart
+     this.cart.next(
+      {cartItems: filteredItems}
+     );
+
+     // Inform the user of the deletion
+     this.snackBar.open(
+      `${cartItem.name} has been removed from your cart`,
+      'Dismiss',
+      {
+        duration : 2000
+      }
+     )
+
   }
 
 }
