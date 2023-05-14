@@ -28,6 +28,9 @@ import { FiltersComponent } from './components/pages/home/components/filters/fil
 import { ProductItemComponent } from './components/pages/home/components/product-item/product-item.component';
 import { CartComponent } from './components/pages/cart/cart.component';
 
+// Import Services to hold cart products
+import { CartService } from './services/cart.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -68,7 +71,10 @@ import { CartComponent } from './components/pages/cart/cart.component';
     // To notify the user
     MatSnackBarModule
   ],
-  providers: [],
+  providers: [
+    // For the cart service
+    CartService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
