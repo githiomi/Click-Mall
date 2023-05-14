@@ -61,7 +61,7 @@ export class CartComponent implements OnInit {
   ]
 
   // Method to calculate the total amount payable for items in the cart
-  // getCartTotal(cartItems: Array<CartItem>): number {
+  // getCartTotal(cartItems: Array<CartItem>): any {
 
   //   return cartItems.map(
   //     cartItem => {
