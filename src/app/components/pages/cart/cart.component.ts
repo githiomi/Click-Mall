@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Cart } from 'src/app/models/Cart';
 import { CartItem } from 'src/app/models/Cart-Item';
+import { Product } from 'src/app/models/Product';
 
 @Component({
   selector: 'app-cart',
@@ -14,32 +15,27 @@ export class CartComponent implements OnInit {
     cartItems: [
 
       {
-        imageUrl: 'https://via.placeholder.com/150',
-        name: 'Nike AirForce 1',
-        price: 150,
-        quantity: 3,
-        id: 1
+        productId: 1,
+        productName: 'Dior Dior',
+        productPrice: 1600,
+        productImageUrl: 'https://via.placeholder.com/150',
+        productCategory: 'Jackets',
+        productDescription: 'These are the collest shoes on the block!'
       },
       {
-        imageUrl: 'https://via.placeholder.com/150',
-        name: 'Nike AirForce 2',
-        price: 970,
-        quantity: 2,
-        id: 2
-      },
-      {
-        imageUrl: 'https://via.placeholder.com/150',
-        name: 'Nike AirForce 3',
-        price: 350,
-        quantity: 4,
-        id: 3
+        productId: 2,
+        productName: 'Nike Airforce 1',
+        productPrice: 270,
+        productImageUrl: 'https://via.placeholder.com/150',
+        productCategory: 'Shoes',
+        productDescription: 'These are the collest shoes on the block!'
       }
 
     ]
   };
 
   // To store the products data from the API
-  cartDataSource: Array<CartItem> = [];
+  cartDataSource: Array<Product> = [];
 
   constructor() {
   }
