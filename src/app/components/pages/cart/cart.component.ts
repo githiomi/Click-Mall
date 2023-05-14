@@ -80,6 +80,14 @@ export class CartComponent implements OnInit {
     confirm(`Are you sure you want to remove all ${this.cart.cartItems.length} items from the cart?`)
   }
 
-  
+  // To add the amount of an item in the cart
+  addQuantity(cartItem: CartItem): void {
+    cartItem.quantity += 1;
+  }
+
+  // To remove the amount of an item in the cart
+  reduceQuantity(cartItem: CartItem): void {
+    cartItem.quantity -= 1;
+  }
 
 }
