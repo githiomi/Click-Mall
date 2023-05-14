@@ -28,7 +28,7 @@
                 </th>
                 <!-- Table cell -->
                 <td mat-cell *matCellDef="let product">
-                    <p class="truncate font-bold max-w-xs">
+                    <p class="productName truncate font-bold max-w-xs block">
                         {{ product.name }}
                     </p>
                 </td>
@@ -56,18 +56,22 @@
                 <td mat-cell *matCellDef="let product">
 
                     <!-- To decrease the quantity -->
-                    <button mat-icon-button>
+                    <button 
+                    (click)="reduceQuantity(product)"
+                    mat-icon-button>
                         <mat-icon>
                             remove
                         </mat-icon>
                     </button>
 
-                    <span class="itemQuantity">
+                    <span class="productQuantity">
                         {{ product.quantity }}
                     </span>
 
                     <!-- To increase the quantity -->
-                    <button mat-icon-button>
+                    <button 
+                    (click)="addQuantity(product)"
+                    mat-icon-button>
                         <mat-icon>
                             add
                         </mat-icon>

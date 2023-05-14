@@ -24,7 +24,12 @@
     transition: all .3s ease-in-out;
 }
 
-.itemQuantity {
+.productName, .productQuantity {
+    margin: 0;
+    padding: 0;
+}
+
+.productQuantity {
     color: var(
         --main-theme-color
     )

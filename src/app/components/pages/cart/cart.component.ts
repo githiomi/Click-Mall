@@ -17,7 +17,7 @@ export class CartComponent implements OnInit {
         imageUrl: 'https://via.placeholder.com/150',
         name: 'Nike AirForce 1',
         price: 150,
-        quantity: 2,
+        quantity: 3,
         id: 1
       },
       {
@@ -31,7 +31,7 @@ export class CartComponent implements OnInit {
         imageUrl: 'https://via.placeholder.com/150',
         name: 'Nike AirForce 3',
         price: 350,
-        quantity: 2,
+        quantity: 4,
         id: 3
       }
 
@@ -79,4 +79,7 @@ export class CartComponent implements OnInit {
   clearCart(): void {
     confirm(`Are you sure you want to remove all ${this.cart.cartItems.length} items from the cart?`)
   }
+
+  
+
 }
