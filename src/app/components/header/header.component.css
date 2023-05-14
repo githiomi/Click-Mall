@@ -23,7 +23,7 @@ a{
 }
 
 /* Cart dropdown menu */
-.productItem {
+.productItem, .total {
     font-size: .9rem;
 }
 

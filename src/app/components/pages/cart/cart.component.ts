@@ -17,22 +17,7 @@ export class CartComponent implements OnInit {
   // To hold the products kept in the cart
   cart: Cart = {
     cartItems: [
-
-      {
-        product: "http://via.placeholder.com/150",
-        name: 'Nike Air Force 1s',
-        price: 160,
-        quantity: 1,
-        id: 1
-      },
-      {
-        product: "http://via.placeholder.com/150",
-        name: 'Laptop Stand',
-        price: 270,
-        quantity: 1,
-        id: 2
-      }
-
+      // Empty cart
     ]
   };
 
@@ -47,8 +32,19 @@ export class CartComponent implements OnInit {
 
   // To call when the component initializes
   ngOnInit(): void {
-    // Set the cart items to the dta source
-    this.cartDataSource = this.cart.cartItems;
+
+    // Subscribe to the cart service to get the updated cart items
+    this._cartService.cart.subscribe(
+      (_cart : Cart) => {
+
+        // Set the local cart to the cart item returned from the service
+        this.cart = _cart;
+
+        // Set the data source
+        this.cartDataSource = this.cart.cartItems;
+
+      }
+    )
   }
 
   // List of cart column headers
