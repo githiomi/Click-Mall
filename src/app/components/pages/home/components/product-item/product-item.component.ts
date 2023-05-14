@@ -15,9 +15,12 @@ export class ProductItemComponent {
 
   // Product Placeholder
   product: Product = {
-    itemName: 'Nike AirForce 1',
-    itemCounter: 0,
-    itemPrice: 150
+    productId: 1,
+    productName: 'Nike Airforce 1',
+    productPrice: 270,
+    productImageUrl: 'https://via.placeholder.com/150',
+    productCategory: 'Shoes',
+    productDescription: 'These are the collest shoes on the block!'
   }
 
   // To check if the product is in full width mode

@@ -11,12 +11,15 @@ import { Product } from '../../models/Product';
 export class HeaderComponent {
 
   // To keep track of all the products in the cart
-  cartCounter : number = 3;
+  cartCounter: number = 3;
 
   product: Product = {
-    itemName: "Keyboard",
-    itemCounter: 2,
-    itemPrice: 10.57
+    productId: 1,
+    productName: 'Nike Airforce 1',
+    productPrice: 270,
+    productImageUrl: 'https://via.placeholder.com/150',
+    productCategory: 'Shoes',
+    productDescription: 'These are the collest shoes on the block!'
   }
 
   // Method call to get cart total

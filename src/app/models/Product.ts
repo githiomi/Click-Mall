@@ -1,7 +1,10 @@
 export interface Product {
 
-    itemName : string,
-    itemCounter: number,
-    itemPrice: number
+    productId: number;
+    productName: string;
+    productPrice: number;
+    productImageUrl: string
+    productCategory: string;
+    productDescription: string;
 
 }
