@@ -14,7 +14,9 @@
         <button mat-icon-button [matMenuTriggerFor]="cartList">
 
             <!-- Cart Icon -->
-            <mat-icon matBadge="{{ cartCounter }}" matBadgeColor="accent">
+            <mat-icon 
+            [matBadgeHidden]="cartCounter === 0"
+            [matBadge]="cartCounter" matBadgeColor="accent">
                 shopping_cart
             </mat-icon>
 
