@@ -4,3 +4,19 @@
     transition: transform .4s ease-in-out;
 
 }
+
+.productImage {
+    aspect-ratio: 1 / 1;
+    width: 12rem;
+    height: 12rem;
+    margin: 0 auto;
+}
+
+.productCategory {
+    margin: 1rem 0;
+}
+
+.productTitle {
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+}

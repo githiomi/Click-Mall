@@ -1,13 +1,13 @@
 <div class="productItem">
 
-    <mat-card class="p-3" [ngClass]="{ 'text-center' : !isInFullWidthMode() }">
+    <mat-card class="p-2" [ngClass]="{ 'text-center' : !isInFullWidthMode() }">
 
         <div [ngClass]="{ 'flex' : isInFullWidthMode() }" class="productItemContent">
 
             <!-- Product Image -->
             <div class="productImage ">
                 <img [ngClass]="{ 'h-[200px]' : !isInFullWidthMode(), 'h-[210px]' : isInFullWidthMode() }"
-                    class="m-1 mx-auto h-[200px]" src="{{product.image}}" alt="Product image placeholder">
+                    class="productImage m-1 mx-auto h-[200px]" src="{{product.image}}" alt="Product image placeholder">
             </div>
 
             <!-- Product Details -->
@@ -15,7 +15,7 @@
 
                 <div>
                     <h5 class="productCategory uppercase font-bold">
-                        {{product.category}}
+                        --{{product.category}}--
                     </h5>
 
                     <p class="productTitle p-1 font-bold truncate hover:whitespace-normal">

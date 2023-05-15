@@ -16,11 +16,11 @@ import { Subscription } from 'rxjs';
 const ROW_HEIGHT: { [column: number]: number } = {
 
   // If there i only 1 column, row height = 400px
-  1: 400,
+  1: 280,
   // Columns = 3, Row Height = 335
-  2: 335,
+  2: 350,
   // Columns = 4, Row Height = 350
-  3: 350
+  3: 330
 
 };
 
