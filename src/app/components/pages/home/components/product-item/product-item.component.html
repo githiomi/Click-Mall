@@ -7,7 +7,7 @@
             <!-- Product Image -->
             <div class="productImage ">
                 <img [ngClass]="{ 'h-[200px]' : !isInFullWidthMode(), 'h-[210px]' : isInFullWidthMode() }"
-                    class="m-1 mx-auto h-[200px]" src="{{product.productImageUrl}}" alt="Product image placeholder">
+                    class="m-1 mx-auto h-[200px]" src="{{product.image}}" alt="Product image placeholder">
             </div>
 
             <!-- Product Details -->
@@ -15,15 +15,15 @@
 
                 <div>
                     <h5 class="productCategory uppercase font-bold">
-                        {{product.productCategory}}
+                        {{product.category}}
                     </h5>
 
                     <p class="productTitle p-1 font-bold truncate hover:whitespace-normal">
-                        {{product.productName}}
+                        {{product.title}}
                     </p>
 
                     <p *ngIf="isInFullWidthMode()" class="productDescription">
-                        {{product.productDescription}}
+                        {{product.description}}
                     </p>
                 </div>
 
@@ -31,7 +31,7 @@
 
                     <!-- The product price -->
                     <span class=" productPrice text-orange-500 font-bold cursor-pointer">
-                        {{ product.productPrice | currency }}
+                        {{ product.price | currency }}
                     </span>
 
                     <!-- Add to cart button -->
