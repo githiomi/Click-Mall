@@ -1,0 +1,29 @@
+.pageError {
+    display: grid;
+    place-items: center;
+    min-height: 95vh;
+}
+
+.errorContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.errorContent h3{
+    font-size: 1.8rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    line-height: 2rem;
+}
+
+.errorContent button{
+    margin: 2rem auto;
+    background-color: var(--main-theme-color);
+}
+
+.errorContent button:hover{
+    box-shadow: 1px 1px 1rem var(--main-theme-color);
+    transition: all .4s ease-in-out;
+}

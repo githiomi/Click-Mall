@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 // Components imported for routing
 import { HomeComponent } from './components/pages/home/home.component';
 import { CartComponent } from './components/pages/cart/cart.component';
+import { ErrorComponent } from './components/pages/error/error.component';
 
 const routes: Routes = [
   // Application Routes
@@ -25,6 +26,12 @@ const routes: Routes = [
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
+  },
+  {
+    // Error page
+    path: '**',
+    component: ErrorComponent,
+    title: 'Click Mall 404 Page Error'
   }
 
 ];
