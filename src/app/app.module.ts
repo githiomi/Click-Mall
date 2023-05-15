@@ -27,6 +27,7 @@ import { ProductsHeaderComponent } from './components/pages/home/components/prod
 import { FiltersComponent } from './components/pages/home/components/filters/filters.component';
 import { ProductItemComponent } from './components/pages/home/components/product-item/product-item.component';
 import { CartComponent } from './components/pages/cart/cart.component';
+import { ErrorComponent } from './components/pages/error/error.component';
 
 // Import Services to hold cart products
 import { CartService } from './services/cart.service';
@@ -39,7 +40,8 @@ import { CartService } from './services/cart.service';
     ProductsHeaderComponent,
     FiltersComponent,
     ProductItemComponent,
-    CartComponent
+    CartComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
