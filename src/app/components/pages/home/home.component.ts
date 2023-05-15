@@ -5,6 +5,8 @@ import { Product } from '../../../models/Product';
 
 // Import the cart service
 import { CartService } from '../../../services/cart.service';
+// Product service
+import { ProductsService } from '../../../services/products.service';
 
 
 // Row Mapper to match each column selection with a row
@@ -36,6 +38,7 @@ export class HomeComponent {
   // To keep track of the category filter
   categoryFilter: string | undefined;
 
+  // This will hold the products from the FakeStore API
   products: Product[] = [
 
     {
@@ -78,7 +81,9 @@ export class HomeComponent {
 
   constructor(
     // Inject the cart service
-    private cartService: CartService
+    private cartService: CartService,
+    // Inject the product service to make API calls
+    private _productsService: ProductsService
   ) {
 
   }

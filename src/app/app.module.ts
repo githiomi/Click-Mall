@@ -5,6 +5,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+// HTTP Modules imports
+import { HttpClientModule } from '@angular/common/http';
+
 // Imported Material Library Modules
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatGridListModule} from '@angular/material/grid-list';
@@ -29,8 +32,9 @@ import { ProductItemComponent } from './components/pages/home/components/product
 import { CartComponent } from './components/pages/cart/cart.component';
 import { ErrorComponent } from './components/pages/error/error.component';
 
-// Import Services to hold cart products
+// Services Imports
 import { CartService } from './services/cart.service';
+import { ProductsService } from './services/products.service';
 
 @NgModule({
   declarations: [
@@ -47,7 +51,10 @@ import { CartService } from './services/cart.service';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+
     // --- Custom Moudules ---
+    // HTTP Client
+    HttpClientModule,
     // For the Side Navigation Menu
     MatSidenavModule,
     // For the grid placement
@@ -75,7 +82,9 @@ import { CartService } from './services/cart.service';
   ],
   providers: [
     // For the cart service
-    CartService
+    CartService,
+    // For the product service
+    ProductsService,
   ],
   bootstrap: [AppComponent]
 })
