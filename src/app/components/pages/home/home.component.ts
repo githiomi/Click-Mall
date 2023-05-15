@@ -55,6 +55,24 @@ export class HomeComponent {
       productImageUrl: 'https://www.colbybrownphotography.com/wp-content/uploads/2018/03/XPS13-V2-768x477.jpg',
       productCategory: 'Laptop',
       productDescription: 'Small, Compact and Powerfull. Don\'t judge by the size!'
+    },
+    {
+      productId: 2,
+      productName: 'Apple MacBook Pro M2',
+      productPrice: 2130,
+      productQuantity: 1,
+      productImageUrl: 'https://static.komputronik.pl/product-picture/6/LTAPLMNEH3ZE_R1_US-1.jpg',
+      productCategory: 'Laptop',
+      productDescription: 'The M2 chip starts the next generation of Apple silicon, with even more of the speed and power efficiency of M1'
+    },
+    {
+      productId: 4,
+      productName: 'Huawei Matebook 14 Pro',
+      productPrice: 1412,
+      productQuantity: 1,
+      productImageUrl: 'https://hothardware.com/ContentImages/Article/2829/content/small_huawei-matebook-13-marketing-render.jpg',
+      productCategory: 'Laptop',
+      productDescription: 'A versatile device that has a fantastic display and intuitive controls, the latest flagship MateBook is easy to recommend'
     }
   ];
 

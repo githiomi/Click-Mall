@@ -30,8 +30,6 @@
 }
 
 .productQuantity {
-    display: grid;
-    place-items: center;
     color: var(
         --main-theme-color
     );
