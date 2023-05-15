@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 // The BASE URL
-const FAKESTORE_BASE_URL = 'https://www.fakestoreapi.com';
+const FAKESTORE_BASE_URL = 'https://fakestoreapi.com';
 
 @Injectable({
   providedIn: 'root'
@@ -30,7 +30,7 @@ export class ProductsService implements OnInit {
     // Make the HTTP request to get the array of products
     // We will subscribe to this
     return this._httpClient.get<Array<Product>>(
-      `${FAKESTORE_BASE_URL}/products?limit=${productLimit}&sort=${sortOrder}`
+      `${FAKESTORE_BASE_URL}/products?sort=${sortOrder}&limit=${productLimit}`
     );
 
   }
