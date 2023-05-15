@@ -132,9 +132,7 @@ export class CartService {
         }
       )
     }
-
     return filteredItems;
-
   }
 
   // Method call to reduce the quantity of an item in the cart
