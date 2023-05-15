@@ -28,9 +28,11 @@
             <mat-grid-list gutterSize="10" [cols]="productColumns" [rowHeight]="rowHeight">
                 <!-- The Products go in here -->
 
-                <mat-grid-tile>
+                <mat-grid-tile
+                *ngFor="let product of products">
                     <!-- Each single product goes in here -->
                     <app-product-item
+                    [product] = "product"
                     (addProductToCartEmitter)="addProductToCart($event)"
                     class="w-full"
                     [productFullWidth] = "isInFullWidth()">

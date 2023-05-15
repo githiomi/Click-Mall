@@ -36,6 +36,28 @@ export class HomeComponent {
   // To keep track of the category filter
   categoryFilter: string | undefined;
 
+  products: Product[] = [
+
+    {
+      productId: 3,
+      productName: 'Samsung Galaxy Book 2 Pro',
+      productPrice: 1670,
+      productQuantity: 1,
+      productImageUrl: 'https://images.samsung.com/is/image/samsung/p6pim/hk_en/feature/163944243/hk_en-feature-light--powerful--made-to-move-in-style-531376919?$FB_TYPE_A_MO_JPG$',
+      productCategory: 'Laptop',
+      productDescription: 'These thinnest and lightest laptop you can find!'
+    },
+    {
+      productId: 1,
+      productName: 'Dell XPS 13',
+      productPrice: 1380,
+      productQuantity: 1,
+      productImageUrl: 'https://www.colbybrownphotography.com/wp-content/uploads/2018/03/XPS13-V2-768x477.jpg',
+      productCategory: 'Laptop',
+      productDescription: 'Small, Compact and Powerfull. Don\'t judge by the size!'
+    }
+  ];
+
   constructor(
     // Inject the cart service
     private cartService: CartService
@@ -74,12 +96,6 @@ export class HomeComponent {
       id: addedProduct.productId,
       product: addedProduct.productImageUrl
     });
-
-      // product: addedProduct.productImageUrl,
-      // name: addedProduct.productName,
-      // price: addedProduct.productPrice,
-      // quantity: 1,
-      // id: addedProduct.productId
 
   }
 
