@@ -105,11 +105,11 @@ export class HomeComponent implements OnInit, OnDestroy {
 
     // Call the add product method from the service
     this.cartService.addProductToCart({
-      price: addedProduct.productPrice,
-      quantity: addedProduct.productQuantity,
-      name: addedProduct.productName,
-      id: addedProduct.productId,
-      product: addedProduct.productImageUrl
+      price: addedProduct.price,
+      quantity: 1,
+      name: addedProduct.title,
+      id: addedProduct.id,
+      product: addedProduct.image
     });
 
   }
