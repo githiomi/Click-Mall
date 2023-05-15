@@ -10,7 +10,7 @@ This project was created using [Angular CLI](https://github.com/angular/angular-
 
 ## 👀 Product Preview
 
-![Screenshot](./src/assets/Images/click_mall_logo_alt.png)
+![Screenshot](./src/assets/Images/Screenshots/Homepage.png)
 
 ## 🏗️ Development server
 
