@@ -77,7 +77,7 @@ export class CartComponent implements OnInit {
       return;
     }
   }
-  
+
   // Method to remove one cart item from the cart
   removeItemFromCart(cartItem: CartItem): void {
     this._cartService.removeCartItem(cartItem);
@@ -85,12 +85,16 @@ export class CartComponent implements OnInit {
 
   // To add the amount of an item in the cart
   addQuantity(cartItem: CartItem): void {
-    cartItem.quantity += 1;
+    // Update the total number of items in the cart
+    // Because the item already exists, it will update the quantity
+    this._cartService.addProductToCart(cartItem);
   }
 
   // To remove the amount of an item in the cart
   reduceQuantity(cartItem: CartItem): void {
-    cartItem.quantity -= 1;
+    // Update the total number of items in the cart
+    // Because the item already exists, it will update the quantity
+    this._cartService.reduceItemQuantity(cartItem);
   }
 
 }

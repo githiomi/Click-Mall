@@ -105,7 +105,7 @@ export class CartService {
   }
 
   // Service method to remove one specific item from the cart
-  removeCartItem(cartItem: CartItem): void {
+  removeCartItem(cartItem: CartItem, notifyFlag: boolean = true): Array<CartItem> {
 
     // Loop though the cart items and remove the one with a matching id
     const filteredItems = this.cart.value.cartItems
@@ -116,19 +116,73 @@ export class CartService {
         }
       );
 
-     // Update the cart with the new filtered cart
-     this.cart.next(
-      {cartItems: filteredItems}
-     );
+    // Inform the user of the deletion
+    if (notifyFlag) {
 
-     // Inform the user of the deletion
-     this.snackBar.open(
-      `${cartItem.name} has been removed from your cart`,
+      // Update the cart with the new filtered cart
+      this.cart.next(
+        { cartItems: filteredItems }
+      );
+
+      this.snackBar.open(
+        `${cartItem.name} has been removed from your cart`,
+        'Dismiss',
+        {
+          duration: 2000
+        }
+      )
+    }
+
+    return filteredItems;
+
+  }
+
+  // Method call to reduce the quantity of an item in the cart
+  reduceItemQuantity(cartItem: CartItem): void {
+
+    // The item to be reduce quantity or removed
+    let itemForRemoval: CartItem | undefined;
+
+    // Loop through the array to find the item that we want to reduce the quantity
+    let filteredItems = this.cart.value.cartItems
+      .map(
+        _cartItem => {
+          if (_cartItem.id === cartItem.id) {
+            // If the cart item we passed in matches the item in the cart
+            // Reduce its quantity
+            _cartItem.quantity--;
+
+            // Check if the item quantity has reached 0
+            if (_cartItem.quantity === 0) {
+              itemForRemoval = _cartItem;
+            }
+          }
+
+          // We can then return the new mapped ited
+          return _cartItem;
+        }
+
+      )
+
+    // If itemForRemoval is set, then remove it from the cart
+    if (itemForRemoval) {
+      filteredItems = this.removeCartItem(itemForRemoval, false);
+    }
+
+    // Then update the emitted cart object
+    this.cart.next({
+      cartItems: filteredItems
+    });
+
+    // Inform user of the quantity decrease
+    this.snackBar.open(
+      `One ${cartItem.name} has been removed from the cart`,
       'Dismiss',
       {
-        duration : 2000
+        duration: 3000
       }
-     )
+    );
+
 
   }
 
