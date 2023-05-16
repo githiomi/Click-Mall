@@ -39,6 +39,52 @@ app.post(checkoutEndPoint,
 
             // Create a session variable to pass back to the cart
             const session = await stripe.checkout.sessions.create({
+                // For the shipping option
+                shipping_address_collection: {
+                    allowed_countries: ['US', 'CA'],
+                },
+                shipping_options: [
+                    {
+                        shipping_rate_data: {
+                            type: 'fixed_amount',
+                            fixed_amount: {
+                                amount: 0,
+                                currency: 'usd',
+                            },
+                            display_name: 'Free shipping',
+                            delivery_estimate: {
+                                minimum: {
+                                    unit: 'business_day',
+                                    value: 5,
+                                },
+                                maximum: {
+                                    unit: 'business_day',
+                                    value: 7,
+                                },
+                            },
+                        },
+                    },
+                    {
+                        shipping_rate_data: {
+                            type: 'fixed_amount',
+                            fixed_amount: {
+                                amount: 1500,
+                                currency: 'usd',
+                            },
+                            display_name: 'Next day air',
+                            delivery_estimate: {
+                                minimum: {
+                                    unit: 'business_day',
+                                    value: 1,
+                                },
+                                maximum: {
+                                    unit: 'business_day',
+                                    value: 1,
+                                },
+                            },
+                        },
+                    },
+                ],
                 // Pass in the data of the cart we want to checkout
                 line_items: req.body.cartItems.map(
                     _item => ({
