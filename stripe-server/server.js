@@ -27,11 +27,11 @@ app.use(cors(
 ));
 
 // Set up stripe
-const stripe = require('stripe')(STRIPE_API_KEY)
+const stripe = require("stripe")(STRIPE_API_KEY);
 
 // Create a new post end point
-const checkoutEndpoint = "/checkout";
-app.post(checkoutEndpoint,
+const checkoutEndPoint = "/checkout";
+app.post(checkoutEndPoint,
     async (req, res, next) => {
 
         // Try/Catch block
@@ -55,8 +55,8 @@ app.post(checkoutEndpoint,
                         quantity: _item.quantity
                     })),
                 mode: "payment",
-                success_url: "https://localhost:4242/success.html",
-                cancel_url: "https://localhost:4242/cancel.html"
+                success_url: "http://localhost:4242/success.html",
+                cancel_url: "http://localhost:4242/cancel.html"
             })
 
             // Pass back the session

@@ -108,7 +108,7 @@ export class CartComponent implements OnInit {
     console.log("Checkout");
 
     // Local server
-    const localServer: string = 'https://localhost:4242/checkout';
+    const localServer: string = 'http://localhost:4242/checkout';
     const publishableKey: string = 'pk_test_51N8Qw1EkeD57hHs1aGv2WntNp3akXyNmV8CDs6axms8zUHLmD5pl2IOMGwrzwj7HQz6l0XhQkXFEdaSeYFkSkYO100GucxJ9US';
 
     // We will make a post request to a local server.
