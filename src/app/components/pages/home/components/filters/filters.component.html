@@ -11,13 +11,13 @@
         <!-- Expansion List content -->
         <mat-selection-list [multiple]="false">
             <!-- Shows the elements in the list -->
-            <mat-list-option *ngFor="let categoryFilter of filterCategories" (click)="categoryFilterSelected(categoryFilter)" [value]="categoryFilter">
+            <mat-list-item *ngFor="let categoryFilter of filterCategories" (click)="categoryFilterSelected(categoryFilter)">
 
                 <button>
                     {{ categoryFilter }}
                 </button>
 
-            </mat-list-option>
+            </mat-list-item>
         </mat-selection-list>
 
     </mat-expansion-panel>
