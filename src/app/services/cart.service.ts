@@ -20,7 +20,29 @@ export class CartService {
   // We can subscribe to the subject to get changes when they occur
   cart = new BehaviorSubject<Cart>(
     {
-      cartItems: []
+      cartItems: [
+        {
+          product: 'https://via.placeholder.com/150',
+          name: 'Nike Airforce 1',
+          price: 260,
+          quantity: 1,
+          id: 1
+        },
+        {
+          product: 'https://via.placeholder.com/150',
+          name: 'Nike Airforce 2',
+          price: 370,
+          quantity: 2,
+          id: 2
+        },
+        {
+          product: 'https://via.placeholder.com/150',
+          name: 'Nike Airforce 3',
+          price: 480,
+          quantity: 3,
+          id: 3
+        }
+      ]
     }
   )
 
@@ -72,9 +94,6 @@ export class CartService {
       )
     }
 
-    console.log(
-      this.cart.value
-    )
   }
 
   // Method to calculate the total cost of items added to the cart
@@ -105,32 +124,20 @@ export class CartService {
   }
 
   // Service method to remove one specific item from the cart
-  removeCartItem(cartItem: CartItem, notifyFlag: boolean = true): CartItem[] {
+  removeCartItem(item: CartItem, notify = true): CartItem[] {
 
-    // Loop though the cart items and remove the one with a matching id
-    let filteredItems = this.cart.value.cartItems
-      .filter(
-        _item => {
-          // Filter out the item with a matching id
-          _item.id !== cartItem.id
-        }
-      );
+    const filteredItems = this.cart.value.cartItems.filter(
+      (_item) => _item.id !== item.id
+    );
 
-    // Inform the user of the deletion
-    if (notifyFlag) {
-
-      // Update the cart with the new filtered cart
-      this.cart.next(
-        { cartItems: filteredItems }
-      );
-
+    if (notify) {
+      this.cart.next({ cartItems: filteredItems });
       this.snackBar.open(
-        `${cartItem.name} has been removed from your cart`,
-        'Dismiss',
+        `${item.name} has been removed from your cart`,
+        'Ok',
         {
-          duration: 2000
-        }
-      )
+          duration: 3000,
+        });
     }
 
     return filteredItems;
@@ -140,7 +147,7 @@ export class CartService {
   reduceItemQuantity(cartItem: CartItem): void {
 
     // The item to be reduce quantity or removed
-    let itemForRemoval: CartItem | undefined;
+    let itemForRemoval !: CartItem | undefined;
 
     // Loop through the array to find the item that we want to reduce the quantity
     let filteredItems = this.cart.value.cartItems
@@ -156,12 +163,12 @@ export class CartService {
               itemForRemoval = _cartItem;
             }
           }
-          
-          // We can then return the new mapped ited
+
+          // We can then return the new mapped item list
           return _cartItem;
 
         }
-      )
+      );
 
     // If itemForRemoval is set, then remove it from the cart
     if (itemForRemoval) {
@@ -183,7 +190,6 @@ export class CartService {
         duration: 3000
       }
     );
-
 
   }
 

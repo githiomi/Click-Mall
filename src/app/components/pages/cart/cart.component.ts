@@ -17,7 +17,7 @@ export class CartComponent implements OnInit {
   // To hold the products kept in the cart
   cart: Cart = {
     cartItems: [
-      // Empty cart
+      // Empty Cart
     ]
   };
 
@@ -35,7 +35,7 @@ export class CartComponent implements OnInit {
 
     // Subscribe to the cart service to get the updated cart items
     this._cartService.cart.subscribe(
-      (_cart : Cart) => {
+      (_cart: Cart) => {
 
         // Set the local cart to the cart item returned from the service
         this.cart = _cart;
@@ -61,7 +61,7 @@ export class CartComponent implements OnInit {
   getCartTotal(cartItems: Array<CartItem>): number {
 
     // Call method from the cart service
-    return this._cartService.getCartTotal(cartItems); 
+    return this._cartService.getCartTotal(cartItems);
 
   }
 
@@ -70,10 +70,10 @@ export class CartComponent implements OnInit {
     const confirmClear = confirm(`Are you sure you want to remove all ${this.cart.cartItems.length} items from the cart?`);
 
     // IF the user consents to remove all items from the cart
-    if (confirmClear){
+    if (confirmClear) {
       // Clear the cart using the cart service
       this._cartService.emptyCart();
-    }else {
+    } else {
       return;
     }
   }

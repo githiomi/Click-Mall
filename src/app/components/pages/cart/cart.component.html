@@ -67,7 +67,7 @@
                     </span>
 
                     <!-- To increase the quantity -->
-                    <button class="quantityChange" class="quantityChange" (click)="addQuantity(cartItem)"
+                    <button class="quantityChange" (click)="addQuantity(cartItem)"
                         mat-icon-button>
                         <mat-icon>
                             add
@@ -84,7 +84,7 @@
                     Total
                 </th>
                 <!-- Table cell -->
-                <td mat-cell class="font-bold" *matCellDef="let cartItem">
+                <td mat-cell class="itemTotal font-bold text-center" *matCellDef="let cartItem">
                     {{ (cartItem.quantity * cartItem.price) | currency }}
                 </td>
                 <td mat-footer-cell *matFooterCellDef>

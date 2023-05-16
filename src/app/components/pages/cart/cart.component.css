@@ -33,13 +33,16 @@
     color: var(
         --main-theme-color
     );
-}
-
-.quantityChange{
-    width: fit-content;
-    height: fit-content;
+    background-color: #ddd;
+    padding: .5rem;
 }
 
 .quantityChange mat-icon{
-    font-size: 15px;
+    padding: 0;
+    margin: 0;
+    font-size: 10px;
+}
+
+.itemTotal {
+    text-align: center;
 }
