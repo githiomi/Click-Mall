@@ -34,7 +34,7 @@ import { ErrorComponent } from './components/pages/error/error.component';
 
 // Services Imports
 import { CartService } from './services/cart.service';
-import { ProductsService } from './services/products.service';
+import { StoreService } from './services/store.service';
 
 @NgModule({
   declarations: [
@@ -84,7 +84,7 @@ import { ProductsService } from './services/products.service';
     // For the cart service
     CartService,
     // For the product service
-    ProductsService,
+    StoreService,
   ],
   bootstrap: [AppComponent]
 })

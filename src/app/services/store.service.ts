@@ -30,4 +30,13 @@ export class StoreService {
       `${FAKESTOREAPI_BASE_URL}/products?sort=${sortOrder}&limit=${productLimit}`);
 
   }
+
+  getAllCategories () : Observable<Array<string>> {
+
+    return this._httpClient.get<Array<string>> (
+      `${FAKESTOREAPI_BASE_URL}/products/categories`
+    );
+
+  }
+
 }
