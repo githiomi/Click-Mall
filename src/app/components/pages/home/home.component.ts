@@ -40,7 +40,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   rowHeight: number = ROW_HEIGHT[this.productColumns];
 
   // To keep track of the category filter
-  categoryFilter: string | undefined;
+  categoryFilter: string = '';
 
   // This will hold the products from the FakeStore API. Is undefined at the start
   products: Array<Product> | undefined;
@@ -71,7 +71,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
     this._productsSubscription = this._storeService.getAllProducts
       // We pass in the sort and limit values to the products service method call
-      (this.productLimit, this.sortOrder).subscribe(
+      (this.productLimit, this.sortOrder, this.categoryFilter).subscribe(
         _products => {
           // We will get an array of products and assign them to the local property
           this.products = _products;
@@ -81,7 +81,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   // Different HTTP methods calls when sort/limit is changed
   // For the sort order change
-  onChangeSortOrder(newSortOrder : string) : void {
+  onChangeSortOrder(newSortOrder: string): void {
     // Change local property
     this.sortOrder = newSortOrder;
 
@@ -90,7 +90,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   // For the product limit change
-  onChangeProductLimit(newProductLimit : number) : void {
+  onChangeProductLimit(newProductLimit: number): void {
     //Change the limit
     this.productLimit = newProductLimit;
 
@@ -115,8 +115,11 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   // Method triggered when the user filters products by category
   filterProductsByCategory(categorySelected: any): void {
-    console.log(`You selected the ${categorySelected}`);
     this.categoryFilter = categorySelected;
+
+    // With the new filter selected, make new API call with the given filter
+    this.getProducts();
+
   }
 
   // To catch the product emitted by the 'product-item' class and update the service

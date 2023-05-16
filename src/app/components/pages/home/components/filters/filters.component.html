@@ -11,9 +11,9 @@
         <!-- Expansion List content -->
         <mat-selection-list [multiple]="false">
             <!-- Shows the elements in the list -->
-            <mat-list-option *ngFor="let categoryFilter of filterCategories" [value]="categoryFilter">
+            <mat-list-option *ngFor="let categoryFilter of filterCategories" (click)="categoryFilterSelected(categoryFilter)" [value]="categoryFilter">
 
-                <button (click)="categoryFilterSelected(categoryFilter)">
+                <button>
                     {{ categoryFilter }}
                 </button>
 
