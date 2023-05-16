@@ -118,7 +118,7 @@
                 </td>
                 <td mat-footer-cell *matFooterCellDef>
                     <!-- Prooceed to Checkout action -->
-                    <button mat-raised-button color="primary" class="float-right">
+                    <button (click)="checkoutCart()" mat-raised-button color="primary" class="float-right">
                         Proceed To Checkout
                         <mat-icon>
                             shopping_cart_checkout

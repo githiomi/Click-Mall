@@ -173,4 +173,6 @@ export class CartService {
 
   }
 
+  // This is the method called when the user click the checkout button to
+
 }

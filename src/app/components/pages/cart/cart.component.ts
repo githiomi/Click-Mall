@@ -6,6 +6,10 @@ import { CartItem } from 'src/app/models/Cart-Item';
 
 // Service imports
 import { CartService } from '../../../services/cart.service';
+import { HttpClient } from '@angular/common/http';
+
+// Stripe JS imports
+import { loadStripe } from '@stripe/stripe-js';
 
 @Component({
   selector: 'app-cart',
@@ -26,9 +30,10 @@ export class CartComponent implements OnInit {
 
   constructor(
     // Inject the cart service
-    private _cartService: CartService
-  ) {
-  }
+    private _cartService: CartService,
+    // Inject the HTTP Client
+    private _httpClient: HttpClient
+  ) { }
 
   // To call when the component initializes
   ngOnInit(): void {
@@ -97,4 +102,33 @@ export class CartComponent implements OnInit {
     this._cartService.reduceItemQuantity(cartItem);
   }
 
+  // Method called to checkout the cart and pay using Stripe
+  checkoutCart(): void {
+
+    // Local server
+    const localServer: string = 'https://localhost:4242/checkout';
+    const publishableKey: string = 'pk_test_51N8Qw1EkeD57hHs1aGv2WntNp3akXyNmV8CDs6axms8zUHLmD5pl2IOMGwrzwj7HQz6l0XhQkXFEdaSeYFkSkYO100GucxJ9US';
+
+    // We will make a post request to a local server.
+    // It will return a session ID which will be used to make a call to Stripe JS
+    this._httpClient.post(
+      // We use a custom local server
+      localServer, {
+      // We then pass in the cart items to post
+      cart: this.cart.cartItems
+    }).subscribe(
+      async (response: any) => {
+        let stripe = await loadStripe(
+          // Stripe.com key on dashboard
+          publishableKey
+        );
+
+        //When stripe is initialized, redirect to checkout
+        stripe?.redirectToCheckout({
+          // Pass in the session id
+          sessionId: response.id
+        });
+      });
+
+  }
 }
