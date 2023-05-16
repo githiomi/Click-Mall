@@ -31,40 +31,43 @@ const stripe = require('stripe')(STRIPE_API_KEY)
 
 // Create a new post end point
 const checkoutEndpoint = "/checkout";
-app.post (checkoutEndpoint, 
-            async (req, res, next) => {
+app.post(checkoutEndpoint,
+    async (req, res, next) => {
 
-                // Try/Catch block
-                try {
+        // Try/Catch block
+        try {
 
-                    // Create a session variable to pass back to the cart
-                    const session = await stripe.checkout.sessions.create({
-                        // Pass in the data of the cart we want to checkout
-                        items_to_checkout : req.body.cart.map(
-                            _item => ({
-                                // An implicit return
-                                // Set currency
-                                currency : "usd",
-                                product_data: {
-                                    name : _item.name,
-                                    images: [_item.product]
-                                },
-                                unit_amount : _item.price * 100
-                            })),
-                            mode : "payment",
-                            sucsess_url: "https://localhost:4242/success.html",
-                            cancel_url: "https://localhost:4242/cancel.html"
-                    })
+            // Create a session variable to pass back to the cart
+            const session = await stripe.checkout.sessions.create({
+                // Pass in the data of the cart we want to checkout
+                line_items: req.body.cartItems.map(
+                    _item => ({
+                        // An implicit return
+                        price_data: {
+                            // Set currency
+                            currency: 'usd',
+                            product_data: {
+                                name: _item.name,
+                                images: [_item.product]
+                            },
+                            unit_amount: _item.price * 100
+                        },
+                        quantity: _item.quantity
+                    })),
+                mode: "payment",
+                success_url: "https://localhost:4242/success.html",
+                cancel_url: "https://localhost:4242/cancel.html"
+            })
 
-                    // Pass back the session
-                    res.status(200).json(session);
+            // Pass back the session
+            res.status(200).json(session);
 
-                }catch (e) {
-                    // If there is an error, catch it and pass it back
-                    next(e);
-                }
+        } catch (e) {
+            // If there is an error, catch it and pass it back
+            next(e);
+        }
 
-            });
+    });
 
 // Open up the port and listen to it
 app.listen(4242, () => {

@@ -105,6 +105,8 @@ export class CartComponent implements OnInit {
   // Method called to checkout the cart and pay using Stripe
   checkoutCart(): void {
 
+    console.log("Checkout");
+
     // Local server
     const localServer: string = 'https://localhost:4242/checkout';
     const publishableKey: string = 'pk_test_51N8Qw1EkeD57hHs1aGv2WntNp3akXyNmV8CDs6axms8zUHLmD5pl2IOMGwrzwj7HQz6l0XhQkXFEdaSeYFkSkYO100GucxJ9US';
@@ -115,7 +117,7 @@ export class CartComponent implements OnInit {
       // We use a custom local server
       localServer, {
       // We then pass in the cart items to post
-      cart: this.cart.cartItems
+      cartItems: this.cart.cartItems
     }).subscribe(
       async (response: any) => {
         let stripe = await loadStripe(
