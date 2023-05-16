@@ -21,27 +21,7 @@ export class CartService {
   cart = new BehaviorSubject<Cart>(
     {
       cartItems: [
-        {
-          product: 'https://via.placeholder.com/150',
-          name: 'Nike Airforce 1',
-          price: 260,
-          quantity: 1,
-          id: 1
-        },
-        {
-          product: 'https://via.placeholder.com/150',
-          name: 'Nike Airforce 2',
-          price: 370,
-          quantity: 2,
-          id: 2
-        },
-        {
-          product: 'https://via.placeholder.com/150',
-          name: 'Nike Airforce 3',
-          price: 480,
-          quantity: 3,
-          id: 3
-        }
+        // Start with the empty cart
       ]
     }
   )
@@ -127,7 +107,7 @@ export class CartService {
   removeCartItem(item: CartItem, notify = true): CartItem[] {
 
     const filteredItems = this.cart.value.cartItems.filter(
-      (_item) => _item.id !== item.id
+      _item => _item.id !== item.id
     );
 
     if (notify) {
