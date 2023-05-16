@@ -30,10 +30,10 @@ Run Angular server __(http://localhost:4200)__
 ng serve
 ```
 
-Run the JSON server __(http://localhost:5000)__
+Run the Stripe server __(http://localhost:4242)__
 
 ```(nodejs)
-npm run server
+node stripe-server.js
 ```
 
 ## ⏬ Setup/Installation Minimal Requirements
@@ -43,11 +43,23 @@ You will need to have the following installed on your system for the application
 * Any Modern Browser.
 * `Node JS` installed on your machine
 
+Make sure to run the following command to get the `node_modules` folder added to your version.
+
+```(nodejs)
+npm init
+```
+
+You will also need to have a local server running to perform the cart checkout using the following command in the root directory.
+
+```(nodejs)
+npm stripe-server.js
+```
+
 ## ➕ Compatibility
 
 Compatible with all mordern browsers.
 
-## 🤖 Technologies Used
+## 🤖 Technologies & Resources Used
 
 It is made entirely using Visual Studio Code in ollaboration with the Angular CLI to create all the files and to achieve the output as you see it.
 
@@ -60,6 +72,12 @@ It is made entirely using Visual Studio Code in ollaboration with the Angular CL
 
 ```(nodejs)
 ng add @fortawesome/angular-fontawesome
+```
+
+* `Stripe` - Provides the checkout protocol
+
+```(nodejs)
+npm install @stripe/stripe-js
 ```
 
 ## 🪲 Known Bugs
