@@ -1,6 +1,6 @@
 <div class="productItem">
 
-    <mat-card class="p-2" [ngClass]="{ 'text-center' : !isInFullWidthMode() }">
+    <mat-card *ngIf="product" class="p-2" [ngClass]="{ 'text-center' : !isInFullWidthMode() }">
 
         <div [ngClass]="{ 'flex' : isInFullWidthMode() }" class="productItemContent">
 

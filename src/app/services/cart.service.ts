@@ -105,14 +105,14 @@ export class CartService {
   }
 
   // Service method to remove one specific item from the cart
-  removeCartItem(cartItem: CartItem, notifyFlag: boolean = true): Array<CartItem> {
+  removeCartItem(cartItem: CartItem, notifyFlag: boolean = true): CartItem[] {
 
     // Loop though the cart items and remove the one with a matching id
-    const filteredItems = this.cart.value.cartItems
+    let filteredItems = this.cart.value.cartItems
       .filter(
-        item => {
+        _item => {
           // Filter out the item with a matching id
-          item.id !== cartItem.id
+          _item.id !== cartItem.id
         }
       );
 
@@ -132,6 +132,7 @@ export class CartService {
         }
       )
     }
+
     return filteredItems;
   }
 
@@ -155,19 +156,21 @@ export class CartService {
               itemForRemoval = _cartItem;
             }
           }
-
+          
           // We can then return the new mapped ited
           return _cartItem;
-        }
 
+        }
       )
 
     // If itemForRemoval is set, then remove it from the cart
     if (itemForRemoval) {
+      console.log(itemForRemoval);
       filteredItems = this.removeCartItem(itemForRemoval, false);
-    }
+    };
 
     // Then update the emitted cart object
+    console.log('Filtered items: ' + filteredItems);
     this.cart.next({
       cartItems: filteredItems
     });

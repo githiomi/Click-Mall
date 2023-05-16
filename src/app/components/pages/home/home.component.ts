@@ -6,7 +6,7 @@ import { Product } from '../../../models/Product';
 // Import the cart service
 import { CartService } from '../../../services/cart.service';
 // Product service
-import { ProductsService } from '../../../services/products.service';
+import { StoreService } from '../../../services/store.service';
 
 // Imports for the API call
 import { Subscription } from 'rxjs';
@@ -16,7 +16,7 @@ import { Subscription } from 'rxjs';
 const ROW_HEIGHT: { [column: number]: number } = {
 
   // If there i only 1 column, row height = 400px
-  1: 280,
+  1: 300,
   // Columns = 3, Row Height = 335
   2: 350,
   // Columns = 4, Row Height = 350
@@ -56,7 +56,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     // Inject the cart service
     private cartService: CartService,
     // Inject the product service to make API calls
-    private _productsService: ProductsService
+    private _storeService: StoreService
   ) { }
 
   ngOnInit(): void {
@@ -69,11 +69,11 @@ export class HomeComponent implements OnInit, OnDestroy {
   // Method call to get the products from the FakeStore API
   getProducts(): void {
 
-    this._productsSubscription = this._productsService.getAllProducts
+    this._productsSubscription = this._storeService.getAllProducts
       // We pass in the sort and limit values to the products service method call
       (this.productLimit, this.sortOrder).subscribe(
         _products => {
-          // We will get an array of products
+          // We will get an array of products and assign them to the local property
           this.products = _products;
         }
       );
@@ -125,8 +125,6 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
 }
-
-
 
 // Hard Coded Product Data
     // {
