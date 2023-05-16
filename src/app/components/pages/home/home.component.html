@@ -20,7 +20,10 @@
         <mat-drawer-content class="p-6">
             <!-- Main Page Content Goes Here -->
 
-            <app-products-header (columnNumberEmitter)="changeColumnsLayout($event)">
+            <app-products-header 
+            (sortOrderChangeEmitter)="onChangeSortOrder($event)"
+            (productNumberChangeEmitter)="onChangeProductLimit($event)"
+            (columnNumberEmitter)="changeColumnsLayout($event)">
                 <!-- The products list header goes here -->
             </app-products-header>
 

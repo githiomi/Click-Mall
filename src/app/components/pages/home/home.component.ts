@@ -79,6 +79,25 @@ export class HomeComponent implements OnInit, OnDestroy {
       );
   }
 
+  // Different HTTP methods calls when sort/limit is changed
+  // For the sort order change
+  onChangeSortOrder(newSortOrder : string) : void {
+    // Change local property
+    this.sortOrder = newSortOrder;
+
+    // Make new HTTP request with new sort order
+    this.getProducts();
+  }
+
+  // For the product limit change
+  onChangeProductLimit(newProductLimit : number) : void {
+    //Change the limit
+    this.productLimit = newProductLimit;
+
+    // Make new HTTP request
+    this.getProducts();
+  }
+
 
   // MEthod to check whether the listed products are in full width mode or not
   isInFullWidth(): boolean {

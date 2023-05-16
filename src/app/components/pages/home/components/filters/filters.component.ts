@@ -42,7 +42,6 @@ export class FiltersComponent implements OnInit, OnDestroy {
     this._categoriesSubscription = this._storeService.getAllCategories().subscribe(
       _categories => {
         // Set the gotten categories to the local array
-        console.log(`Categories: ${_categories}`);
         this.filterCategories = _categories;
       }
     )
