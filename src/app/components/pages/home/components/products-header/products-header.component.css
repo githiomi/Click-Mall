@@ -1,0 +1,12 @@
+.changeLayout mat-icon {
+    color: var(--main-theme-color);
+    margin: .5rem .3rem;
+}
+
+.sortProducts button,
+.productsCounter button {
+    background-color: var(--main-theme-color);
+    margin: .5rem;
+    border-radius: .5rem;
+    color: var(--white);
+}
