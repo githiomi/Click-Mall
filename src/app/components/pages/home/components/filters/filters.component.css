@@ -1,0 +1,12 @@
+.productFilters {
+    padding: 1rem .5rem;
+}
+
+.filterCategory{
+    background-color: var(--main-theme-color);
+}
+
+.filterItem{
+    color: var(--white);
+    font-size: .9rem;
+}
