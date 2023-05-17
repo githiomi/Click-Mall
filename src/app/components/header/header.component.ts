@@ -57,25 +57,12 @@ export class HeaderComponent {
 
   // Method call to clear cart
   clearCart() : void {
-    let confirmClear = confirm("Are you sure you want to clear the cart?");
+    let confirmClear = confirm(`Are you sure you want to clear all ${this.cartCounter} items(s) from your cart?`);
 
     if (confirmClear) {
       // If the user consents to clear the cart
       // Call service to empty the cart
       this._cartService.emptyCart();
-    }else {
-      // Consent is not given to clear the cart
-      return;
-    }
-  }
-
-  // Method to checkout the cart
-  checkoutCart() {
-    const confirmCheckout = confirm("Are you sure you want to checkout the cart?");
-
-    if (confirmCheckout) {
-      // If the user consents to clear the cart
-
     }else {
       // Consent is not given to clear the cart
       return;
