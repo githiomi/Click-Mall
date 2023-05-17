@@ -1,14 +1,12 @@
 .productPrice:hover, .productToCart:hover{
-
     transform: scale(1.1);
     transition: transform .4s ease-in-out;
-
 }
 
 .productImage {
     aspect-ratio: 1 / 1;
-    width: 13rem;
-    height: 13rem;
+    width: 8rem;
+    height: 9rem;
     margin: auto;
 }
 
@@ -18,5 +16,16 @@
 
 .productTitle {
     cursor: pointer;
-    transition: all .3s ease-in-out;
+}
+
+.productItem{
+    height: 80%;
+}
+
+mat-card:hover{
+    cursor: pointer;
+    border-radius: .7rem;
+    transform: scale(1.01) translateY(-1%);
+    box-shadow: .5px .5px .5rem var(--main-theme-color);
+    transition: all .4s ease-in-out;
 }

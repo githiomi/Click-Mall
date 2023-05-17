@@ -4,9 +4,9 @@
     <mat-drawer-container [autosize]="true">
 
         <!-- Drawer content goes here -->
-        <mat-drawer mode="side" class="py-6 px-2" opened>
+        <mat-drawer mode="side" class="px-2" opened>
 
-            <div class="font-bold">
+            <div class="uppercase font-bold">
                 Product Filters
 
                 <app-filters (categoryFilterEmitter)="filterProductsByCategory($event)">
@@ -28,23 +28,22 @@
             </app-products-header>
 
             <!-- All Products Wrapper -->
-            <mat-grid-list gutterSize="16" [cols]="productColumns" [rowHeight]="rowHeight">
+            <mat-grid-list class="py-5" *ngIf="products" gutterSize="5" [cols]="productColumns" [rowHeight]="rowHeight">
                 <!-- The Products go in here -->
 
                 <mat-grid-tile
-                *ngFor="let product of products; let index = index">
+                *ngFor="let product of products">
                     <!-- Each single product goes in here -->
                     <app-product-item
                     [product] = "product"
                     (addProductToCartEmitter)="addProductToCart($event)"
-                    class="w-full"
+                    class="w-full px-3"
                     [productFullWidth] = "isInFullWidth()">
                         <!-- This is each product item -->
                     </app-product-item>
                 </mat-grid-tile>
 
             </mat-grid-list>
-
 
         </mat-drawer-content>
 
