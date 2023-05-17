@@ -52,7 +52,7 @@ npm init
 You will also need to have a local server running to perform the cart checkout using the following command in the root directory.
 
 ```(nodejs)
-npm stripe-server.js
+node stripe-server.js
 ```
 
 ## ➕ Compatibility
