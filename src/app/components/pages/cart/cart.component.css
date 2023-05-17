@@ -1,3 +1,14 @@
+th {
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 600;
+}
+
+th > button,
+td > button {
+    text-transform: uppercase;
+}
+
 .error {
     min-height: 93vh;
     display: flex;
@@ -22,6 +33,15 @@
     transform: translateY(-3%);
     box-shadow: 1px 1px .8rem var(--main-background-color);
     transition: all .3s ease-in-out;
+}
+
+.productImage {
+    cursor: pointer;
+}
+
+.productImage:hover {
+    transform: scale(1.03) translateY(-1%);
+    transition: all .4s ease-in-out;
 }
 
 .productName, .productQuantity {
