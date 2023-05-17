@@ -18,8 +18,8 @@
     cursor: pointer;
 }
 
-.productItem{
-    height: 80%;
+.productPrice{
+    color: var(--main-theme-color);
 }
 
 mat-card:hover{
